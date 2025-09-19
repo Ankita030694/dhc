@@ -1,8 +1,41 @@
 @import "tailwindcss";
 
+/* Static Global Color Palette */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors (Green 70%) */
+  --primary-green: #22c55e;
+  --primary-green-dark: #16a34a;
+  --primary-green-light: #4ade80;
+  
+  /* Secondary Colors (Yellow 15%) */
+  --secondary-yellow: #eab308;
+  --secondary-yellow-dark: #ca8a04;
+  --secondary-yellow-light: #facc15;
+  
+  /* Accent Colors (Light Green 5%) */
+  --accent-light-green: #86efac;
+  --accent-light-green-pale: #bbf7d0;
+  
+  /* Accent Colors (Light Yellow 5%) */
+  --accent-light-yellow: #fde047;
+  --accent-light-yellow-pale: #fef3c7;
+  
+  /* Neutral Colors (5%) */
+  --neutral-white: #ffffff;
+  --neutral-gray-100: #f3f4f6;
+  --neutral-gray-200: #e5e7eb;
+  --neutral-gray-300: #d1d5db;
+  --neutral-gray-400: #9ca3af;
+  --neutral-gray-500: #6b7280;
+  --neutral-gray-600: #4b5563;
+  --neutral-gray-700: #374151;
+  --neutral-gray-800: #1f2937;
+  --neutral-gray-900: #111827;
+  --neutral-black: #000000;
+  
+  /* Background and foreground */
+  --background: var(--neutral-white);
+  --foreground: var(--neutral-gray-900);
 }
 
 @theme inline {
@@ -14,13 +47,105 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--neutral-gray-900);
+    --foreground: var(--neutral-gray-100);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Restaurant page specific styles */
+.restaurant-header {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  color: var(--neutral-white);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.restaurant-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-location {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.widget-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.widget-wrapper {
+  background: var(--neutral-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border: 2px solid var(--accent-light-green);
+}
+
+/* FontAwesome icon styles */
+.fa-icon {
+  margin-right: 0.5rem;
+  color: var(--primary-green);
+}
+
+/* OpenTable Widget Styles */
+.opentable-widget-container {
+  width: 100%;
+  min-height: 490px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.widget-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 490px;
+  background: var(--neutral-gray-100);
+  border-radius: 8px;
+  border: 2px dashed var(--accent-light-green);
+}
+
+.loading-message {
+  color: var(--neutral-gray-600);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.loading-message .fa-spinner {
+  color: var(--primary-green);
+  margin-right: 0.5rem;
+}
+
+/* Override any OpenTable widget styles to match our theme */
+#opentable-widget iframe {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .restaurant-title {
+    font-size: 2rem;
+  }
+  
+  .widget-wrapper {
+    padding: 1rem;
+    margin: 0 0.5rem;
+  }
 }
