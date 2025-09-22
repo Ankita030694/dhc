@@ -83,3 +83,4 @@ export default function OpenTableWidgetSimple({ restaurantId }: OpenTableWidgetS
     </div>
   );
 }
+

@@ -133,3 +133,4 @@ export default function OpenTableIframe({ restaurantId }: OpenTableIframeProps) 
     </div>
   );
 }
+
