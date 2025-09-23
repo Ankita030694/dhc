@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
+import Image from 'next/image';
 
 const CurlyDivider: React.FC = () => (
   <svg width="2" height="40" viewBox="0 0 2 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,9 +105,16 @@ const Navbar: React.FC = () => {
           </button>
         </div>
         
-        {/* Center - Delhi House Cafe */}
+        {/* Center - Delhi House Cafe Logo */}
         <div className="navbar-center">
-          <h1 className="navbar-logo">DELHI HOUSE CAFE</h1>
+          <Image 
+            src="/trans.png" 
+            alt="Delhi House Cafe" 
+            width={100} 
+            height={20}
+            className="navbar-logo"
+            priority
+          />
         </div>
         
         {/* Right - Navigation with Curly Dividers */}

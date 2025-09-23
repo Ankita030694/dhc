@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -6,13 +7,13 @@ export default function Footer() {
       <div className="footer-container">
         {/* Left - EVOO Logo */}
         <div className="footer-logo">
-          <h1 className="footer-logo-text">EVOO</h1>
+          <Image src="/trans.png" alt="Footer logo" width={400} height={400} />
         </div>
 
         {/* Center - Join Our Team */}
         <div className="footer-center">
           <h3 className="footer-heading">JOIN OUR TEAM</h3>
-          <p className="footer-email">E: careers@evooeatrypizzeria.com</p>
+          <p className="footer-email">E: careers@dhc.com</p>
         </div>
 
         {/* Right - Follow Our Journey */}
@@ -23,19 +24,24 @@ export default function Footer() {
               <a href="#" className="social-link" aria-label="Instagram Delhi">
                 <i className="fab fa-instagram"></i>
               </a>
-              <span className="location-label">Delhi</span>
-            </div>
-            <div className="social-group">
-              <a href="#" className="social-link" aria-label="Instagram Gurgaon">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <span className="location-label">Gurgaon</span>
             </div>
             <div className="social-group">
               <a href="#" className="social-link" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook"></i>
               </a>
             </div>
+            <div className="social-group">
+              <a href="#" className="social-link" aria-label="Facebook">
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </div>
+            <div className="social-group">
+              <a href="#" className="social-link" aria-label="Facebook">
+                <i className="fab fa-twitter"></i>
+              </a>
+            </div>
+        
+           
           </div>
         </div>
 
@@ -50,4 +56,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 

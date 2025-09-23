@@ -1,7 +1,31 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
+import VanishingText from '../components/VanishingText';
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+  const [sectionProgress, setSectionProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Calculate progress specifically for the semi-circle section
+      // Assuming the section starts around 600px from top (after Hero + fruit section)
+      const sectionStart = 600;
+      const sectionHeight = window.innerHeight;
+      const progress = Math.max(0, Math.min(1, (currentScrollY - sectionStart) / sectionHeight));
+      setSectionProgress(progress);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <main>
       <Hero />
@@ -9,21 +33,38 @@ export default function Home() {
       {/* Fruit section with SVG and text */}
       <section className="fruit-section">
         <div className="fruit-container">
-          <div className="fruit-svg">
-            <img src="/hero/fruit.svg" alt="Fruit illustration" />
-          </div>
           <p className="fruit-text">
-            Step into EVOO, where every dish whispers the timeless secrets of authentic Italian artistry.
+          Step into Delhi House Café, where flavours flirt, spices tease, and Delhi's soul takes the spotlight.
           </p>
+        </div>
+      </section>
+      
+      {/* Semi-circle reveal image section */}
+      <section className="semicircle-reveal-section">
+        <div className="semicircle-reveal-container">
+          <div 
+            className={`semicircle-reveal-image ${sectionProgress >= 0.95 ? 'fully-expanded' : ''}`}
+            style={{
+              '--scroll-progress': sectionProgress
+            } as React.CSSProperties & { '--scroll-progress': number }}
+          >
+            <img src="/img1.jpg" alt="Delhi House Café ambiance" />
+          </div>
         </div>
       </section>
       
       {/* THE EXPERIENCE Section */}
       <section className="experience-section">
         <div className="experience-container">
-          <h2 className="experience-heading">THE EXPERIENCE</h2>
+          <h2 className="experience-heading">
+            <VanishingText threshold={0.4} staggerDelay={30}>
+              THE EXPERIENCE
+            </VanishingText>
+          </h2>
           <p className="experience-intro">
-            EVOO is more than just a dining destination; it's a culinary journey that connects you with the soulful essence of Italian cooking.
+            <VanishingText threshold={0.3} staggerDelay={20}>
+              Delhi House Café is more than just a restaurant; it's a journey through Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.
+            </VanishingText>
           </p>
           
           {/* First subsection - Image left, text right */}
@@ -32,9 +73,15 @@ export default function Home() {
               <img src="/restaurant.jpg" alt="Restaurant ambiance" />
             </div>
             <div className="experience-content">
-              <h3 className="experience-subheading">THE RESTAURANT</h3>
+              <h3 className="experience-subheading">
+                <VanishingText threshold={0.35} staggerDelay={25}>
+                  THE RESTAURANT
+                </VanishingText>
+              </h3>
               <p className="experience-text">
-                Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
+                <VanishingText threshold={0.3} staggerDelay={15}>
+                  Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
+                </VanishingText>
               </p>
             </div>
           </div>
@@ -42,9 +89,15 @@ export default function Home() {
           {/* Second subsection - Text left, image right */}
           <div className="experience-subsection">
             <div className="experience-content">
-              <h3 className="experience-subheading">FOOD</h3>
+              <h3 className="experience-subheading">
+                <VanishingText threshold={0.35} staggerDelay={25}>
+                  FOOD
+                </VanishingText>
+              </h3>
               <p className="experience-text">
-                Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
+                <VanishingText threshold={0.3} staggerDelay={15}>
+                  Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
+                </VanishingText>
               </p>
             </div>
             <div className="experience-image">
@@ -54,13 +107,22 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Images Section */}
-      <section className="pasta-lab-section">
+      {/* Images & Video Section */}
+      <section className="pasta-lab-section mx-20">
+        <h1 className="pasta-lab-heading">THE LAB</h1>
         <div className="pasta-lab-container">
-          {/* Two images side by side */}
+          {/* Video left, image right */}
           <div className="pasta-lab-images">
             <div className="pasta-lab-image">
-              <img src="/img1.jpg" alt="Image 1" />
+              <video
+                src="/hero/evohero.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="pasta-lab-video"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+              />
             </div>
             <div className="pasta-lab-image">
               <img src="/img2.jpg" alt="Image 2" />
@@ -78,7 +140,7 @@ export default function Home() {
             {/* EVOO Gurgaon */}
             <div className="news-item">
               <div className="news-image">
-                <img src="/hero/fruit.svg" alt="EVOO Gurgaon restaurant interior" />
+                <img src="/restaurant.jpg" alt="EVOO Gurgaon restaurant interior" />
               </div>
               <div className="news-content">
                 <h3 className="news-title">EVOO Gurgaon</h3>
@@ -91,7 +153,7 @@ export default function Home() {
             {/* Condé Nast Traveller India */}
             <div className="news-item">
               <div className="news-image">
-                <img src="/hero/fruit.svg" alt="Fresh pizza with burrata and arugula" />
+                <img src="/restaurant.jpg" alt="Fresh pizza with burrata and arugula" />
               </div>
               <div className="news-content">
                 <h3 className="news-title">Condé Nast Traveller India</h3>
@@ -104,7 +166,7 @@ export default function Home() {
             {/* Times Food And Night Life */}
             <div className="news-item">
               <div className="news-image">
-                <img src="/hero/fruit.svg" alt="Times Food Awards team celebration" />
+                <img src="/restaurant.jpg" alt="Times Food Awards team celebration" />
               </div>
               <div className="news-content">
                 <h3 className="news-title">Times Food And Night Life</h3>
@@ -140,12 +202,8 @@ export default function Home() {
                 
                 <div className="info-item">
                   <h4 className="location-name">MANCHESTER</h4>
-                  <p className="hours-detail">Monday: 12–9:30 pm</p>
-                  <p className="hours-detail">Tuesday: 12–9:30 pm</p>
-                  <p className="hours-detail">Wednesday: 12–9:30 pm</p>
-                  <p className="hours-detail">Thursday: 12–9:30 pm</p>
-                  <p className="hours-detail">Friday: 12–10 pm</p>
-                  <p className="hours-detail">Saturday: 12–10 pm</p>
+                  <p className="hours-detail">Monday - Thursday: 12–9:30 pm</p>
+                  <p className="hours-detail">Friday - Saturday: 12–10 pm</p>
                   <p className="hours-detail">Sunday: 12–9:30 pm</p>
                 </div>
               </div>

@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
       
       {/* Centered content */}
       <div className="hero-content">
-        <h1 className="hero-title">DELHI HOUSE CAFE</h1>
+       <Image src="/trans.png" alt="Hero background" width={400} height={400} />
         <div className="hero-divider"></div>
       </div>
     </div>
