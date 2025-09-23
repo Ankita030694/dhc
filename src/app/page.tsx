@@ -29,46 +29,41 @@ export default function Home() {
           {/* First subsection - Image left, text right */}
           <div className="experience-subsection">
             <div className="experience-image">
-              <img src="/hero/fruit.svg" alt="Restaurant ambiance" />
+              <img src="/restaurant.jpg" alt="Restaurant ambiance" />
             </div>
             <div className="experience-content">
               <h3 className="experience-subheading">THE RESTAURANT</h3>
               <p className="experience-text">
-                Feel the warmth and charm of our space, perfect for cherished moments with family, romantic evenings, and solo culinary adventures.
+                Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
               </p>
             </div>
           </div>
           
-          {/* Second subsection - Image right, text left */}
-          <div className="experience-subsection reverse">
+          {/* Second subsection - Text left, image right */}
+          <div className="experience-subsection">
             <div className="experience-content">
-              <h3 className="experience-subheading">THE RESTAURANT</h3>
+              <h3 className="experience-subheading">FOOD</h3>
               <p className="experience-text">
-                Feel the warmth and charm of our space, perfect for cherished moments with family, romantic evenings, and solo culinary adventures.
+                Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
               </p>
             </div>
             <div className="experience-image">
-              <img src="/hero/fruit.svg" alt="Restaurant ambiance" />
+              <img src="/food.jpg" alt="Delicious Indian cuisine" />
             </div>
           </div>
         </div>
       </section>
       
-      {/* THE PASTA LAB Section */}
+      {/* Images Section */}
       <section className="pasta-lab-section">
         <div className="pasta-lab-container">
-          <h2 className="pasta-lab-heading">THE PASTA LAB</h2>
-          <p className="pasta-lab-text">
-            The pasta lab at EVOO is a hub of creativity where culinary imagination knows no bounds. From the elegant ribbon like strands of fettucine to the comforting pockets of caramelle ravioli we love creating pasta where every shape is a symphony of flavour and texture.
-          </p>
-          
           {/* Two images side by side */}
           <div className="pasta-lab-images">
             <div className="pasta-lab-image">
-              <img src="/hero/fruit.svg" alt="Pasta creation process" />
+              <img src="/img1.jpg" alt="Image 1" />
             </div>
             <div className="pasta-lab-image">
-              <img src="/hero/fruit.svg" alt="Fresh pasta varieties" />
+              <img src="/img2.jpg" alt="Image 2" />
             </div>
           </div>
         </div>
@@ -134,30 +129,24 @@ export default function Home() {
               <div className="info-group">
                 <h3 className="info-heading">PHONE:</h3>
                 <div className="info-item">
-                  <h4 className="location-name">DELHI</h4>
-                  <p className="contact-detail">+ 91 83684 28737</p>
-                </div>
-                <div className="info-item">
-                  <h4 className="location-name">GURGAON</h4>
-                  <p className="contact-detail">+91 99992 33403</p>
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="contact-detail">+44 161 834 3333</p>
                 </div>
               </div>
 
               {/* Hours Section */}
               <div className="info-group">
                 <h3 className="info-heading">HOURS:</h3>
-                <p className="general-hours">Monday - Sunday</p>
                 
                 <div className="info-item">
-                  <h4 className="location-name">DELHI</h4>
-                  <p className="hours-detail">12:00 Noon - 10:30 PM</p>
-                  <p className="hours-detail">Last Order - 10:25 PM</p>
-                </div>
-                
-                <div className="info-item">
-                  <h4 className="location-name">GURGAON</h4>
-                  <p className="hours-detail">12:00 Noon - 11:00 PM</p>
-                  <p className="hours-detail">Last Order - 10:45 PM</p>
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="hours-detail">Monday: 12–9:30 pm</p>
+                  <p className="hours-detail">Tuesday: 12–9:30 pm</p>
+                  <p className="hours-detail">Wednesday: 12–9:30 pm</p>
+                  <p className="hours-detail">Thursday: 12–9:30 pm</p>
+                  <p className="hours-detail">Friday: 12–10 pm</p>
+                  <p className="hours-detail">Saturday: 12–10 pm</p>
+                  <p className="hours-detail">Sunday: 12–9:30 pm</p>
                 </div>
               </div>
             </div>
@@ -166,31 +155,27 @@ export default function Home() {
             <div className="visit-us-map">
               <div className="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224567.72857751175!2d76.84140695273435!3d28.527252799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03259db9e4a1%3A0xbbf8b3e1bb26b7e3!2sEVOO%20Pizzeria!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.123456789!2d-2.2436!3d53.4848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1c0a0a0a0a0%3A0x0!2sUnit%2010%20Exchange%20Sq%2C%20Manchester%20M4%203TR%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
                   width="100%"
                   height="100%"
                   style={{border: 0}}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="EVOO Pizzeria Locations"
+                  title="EVOO Pizzeria Manchester Location"
                 />
               </div>
             </div>
           </div>
 
-          {/* Bottom section - Locations and Landmarks */}
+          {/* Bottom section - Location and Landmark */}
           <div className="visit-us-bottom">
-            {/* Locations Section */}
+            {/* Location Section */}
             <div className="info-group">
-              <h3 className="info-heading">LOCATIONS:</h3>
+              <h3 className="info-heading">LOCATION:</h3>
               <div className="info-item">
-                <h4 className="location-name">DELHI</h4>
-                <p className="address">B-2, Ground Floor, Shivalik, New Delhi - 110017, India</p>
-              </div>
-              <div className="info-item">
-                <h4 className="location-name">GURGAON</h4>
-                <p className="address">The Kitchens, UNIT No 7, Ground Floor, TOWER-A, Global Gateway Towers, Mehrauli-Gurgaon Rd, Sikanderpur, Sector 26, Gurugram, Haryana 122002</p>
+                <h4 className="location-name">MANCHESTER</h4>
+                <p className="address">Unit 10 Exchange Sq, Manchester M4 3TR, United Kingdom</p>
               </div>
             </div>
 
@@ -198,12 +183,8 @@ export default function Home() {
             <div className="info-group">
               <h3 className="info-heading">NEAREST LANDMARK</h3>
               <div className="info-item">
-                <h4 className="location-name">DELHI</h4>
-                <p className="landmark">Aurobindo College / Malviya Nagar Metro Station</p>
-              </div>
-              <div className="info-item">
-                <h4 className="location-name">GURGAON</h4>
-                <p className="landmark">Guru Dronacharya Metro Station</p>
+                <h4 className="location-name">MANCHESTER</h4>
+                <p className="landmark">Corn Exchange Manchester</p>
               </div>
             </div>
           </div>

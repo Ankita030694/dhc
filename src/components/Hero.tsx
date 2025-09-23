@@ -1,19 +1,16 @@
 import React from 'react';
-
+import Image from 'next/image';
 const Hero: React.FC = () => {
   return (
     <div className="hero-section">
       {/* Full-screen video background */}
-      <video
+      <Image
         className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="/hero/evohero.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        src="/herobg.jpg"
+        alt="Hero background"
+        width={1920}
+        height={1080}
+      />
       
       {/* Overlay for better text visibility */}
       <div className="hero-overlay"></div>
