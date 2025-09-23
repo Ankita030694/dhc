@@ -103,27 +103,44 @@ export default function Home() {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
       
-      // Calculate progress specifically for the semi-circle section
-      // Get the fruit section element to calculate when semicircle should start
+      // Get the fruit section element to calculate when slide should start
       const fruitSection = document.querySelector('.fruit-section') as HTMLElement;
-      const semicircleSection = document.querySelector('.semicircle-reveal-section') as HTMLElement;
       
-      if (fruitSection && semicircleSection) {
-        // Start expanding when we reach the semicircle section
-        const sectionStart = fruitSection.offsetTop + fruitSection.offsetHeight - window.innerHeight * 0.8;
-        const sectionHeight = window.innerHeight * 1.2; // Make expansion take longer
-        const progress = Math.max(0, Math.min(1, (currentScrollY - sectionStart) / sectionHeight));
-        setSectionProgress(progress);
+      if (fruitSection) {
+        // Calculate animation trigger points
+        const sectionStart = fruitSection.offsetTop - window.innerHeight;
+        const sectionEnd = fruitSection.offsetTop + fruitSection.offsetHeight;
+        const animationDistance = sectionEnd - sectionStart;
         
-        // Debug logging (remove in production)
-        if (currentScrollY > sectionStart - 100) {
-          console.log('Scroll Progress:', progress, 'ScrollY:', currentScrollY, 'Start:', sectionStart);
+        // Calculate progress based on scroll position
+        if (currentScrollY >= sectionStart && currentScrollY <= sectionEnd) {
+          const progress = Math.max(0, Math.min(1, (currentScrollY - sectionStart) / animationDistance));
+          setSectionProgress(progress);
+        } else if (currentScrollY < sectionStart) {
+          setSectionProgress(0);
+        } else {
+          setSectionProgress(1);
         }
       }
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Use throttled scroll handling for better performance
+    let ticking = false;
+    const scrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
   }, []);
 
   return (
@@ -139,16 +156,16 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Semi-circle reveal image section */}
+      {/* Horizontal slide reveal image section */}
       <section 
-        className="semicircle-reveal-section"
+        className="horizontal-slide-section"
         style={{
           '--scroll-progress': sectionProgress
         } as React.CSSProperties & { '--scroll-progress': number }}
       >
-        <div className="semicircle-reveal-container">
+        <div className="horizontal-slide-container">
           <div 
-            className={`semicircle-reveal-image ${sectionProgress >= 0.95 ? 'fully-expanded' : ''}`}
+            className="horizontal-slide-image"
             style={{
               '--scroll-progress': sectionProgress
             } as React.CSSProperties & { '--scroll-progress': number }}

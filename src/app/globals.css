@@ -1845,76 +1845,59 @@ body {
   }
 }
 
-/* Semi-circle reveal image section */
-.semicircle-reveal-section {
+/* Horizontal slide reveal image section */
+.horizontal-slide-section {
   position: relative;
-  height: calc(50px + (var(--scroll-progress) * 80vh));
-  min-height: 50px;
-  max-height: 80vh;
+  height: 100vh;
   overflow: hidden;
   background: var(--background);
   margin-top: -1rem;
-  transition: height 0.05s ease-out;
 }
 
-.semicircle-reveal-container {
+.horizontal-slide-container {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.semicircle-reveal-image {
-  position: relative;
-  width: 100%;
-  height: 80vh;
+  align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
-  clip-path: ellipse(
-    calc(40px + (var(--scroll-progress) * 100vw)) 
-    calc(20px + (var(--scroll-progress) * 60vh)) 
-    at 50% 100%
-  );
-  transition: clip-path 0.05s ease-out;
 }
 
-/* When fully expanded, switch to rectangle */
-.semicircle-reveal-image.fully-expanded {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+.horizontal-slide-image {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  will-change: transform;
 }
 
-.semicircle-reveal-image img {
-  width: 100%;
+.horizontal-slide-image img {
+  width: 100vw;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
+  transform: translateX(calc(100vw - (var(--scroll-progress) * 100vw)));
+  will-change: transform;
 }
 
-/* Ensure smooth animation by using transform instead of just clip-path */
+/* Smooth animation with GPU acceleration */
 @media (prefers-reduced-motion: no-preference) {
-  .semicircle-reveal-image {
-    transition: clip-path 0.1s ease-out;
-  }
-}
-
-/* Mobile responsiveness for the semi-circle reveal effect */
-@media (max-width: 768px) {
-  .semicircle-reveal-section {
-    height: calc(40px + (var(--scroll-progress) * 60vh));
-    min-height: 40px;
-    max-height: 60vh;
-    margin-top: -0.75rem;
+  .horizontal-slide-image {
+    transition: none;
   }
   
-  .semicircle-reveal-image {
-    height: 60vh;
-    clip-path: ellipse(
-      calc(35px + (var(--scroll-progress) * 90vw)) 
-      calc(18px + (var(--scroll-progress) * 45vh)) 
-      at 50% 100%
-    );
+  .horizontal-slide-image img {
+    transition: none;
+  }
+}
+
+/* Mobile responsiveness for the horizontal slide effect */
+@media (max-width: 768px) {
+  .horizontal-slide-section {
+    height: 100vh;
+    margin-top: -0.75rem;
   }
   
   .fruit-section {
@@ -1923,20 +1906,9 @@ body {
 }
 
 @media (max-width: 480px) {
-  .semicircle-reveal-section {
-    height: calc(30px + (var(--scroll-progress) * 50vh));
-    min-height: 30px;
-    max-height: 50vh;
+  .horizontal-slide-section {
+    height: 100vh;
     margin-top: -0.5rem;
-  }
-  
-  .semicircle-reveal-image {
-    height: 50vh;
-    clip-path: ellipse(
-      calc(30px + (var(--scroll-progress) * 80vw)) 
-      calc(15px + (var(--scroll-progress) * 35vh)) 
-      at 50% 100%
-    );
   }
   
   .fruit-section {
