@@ -288,7 +288,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 0.5rem 2rem;
   background: transparent;
   color: var(--neutral-white);
 }
@@ -861,14 +861,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
 }
 
 .experience-image img {
   width: 100%;
-  max-width: 400px;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
+  transition: transform 0.3s ease-out;
 }
 
 .experience-content {
@@ -1013,6 +1018,11 @@ body {
     direction: ltr;
   }
   
+  .experience-image {
+    width: 300px;
+    height: 300px;
+  }
+  
   .experience-content {
     padding: 1rem;
   }
@@ -1033,6 +1043,11 @@ body {
   
   .experience-intro {
     font-size: 1.1rem;
+  }
+  
+  .experience-image {
+    width: 250px;
+    height: 250px;
   }
   
   .experience-subheading {
@@ -1100,10 +1115,17 @@ body {
 
 .pasta-lab-image img {
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   object-fit: cover;
   border-radius: 0;
   max-height: none;
+}
+
+.pasta-lab-video {
+  width: 100% !important;
+  height: 70vh !important;
+  object-fit: cover !important;
+  border-radius: inherit !important;
 }
 
 /* Responsive styles for pasta lab section */
@@ -1120,6 +1142,14 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
   }
+  
+  .pasta-lab-image img {
+    height: 40vh;
+  }
+  
+  .pasta-lab-video {
+    height: 40vh !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1130,11 +1160,19 @@ body {
   .pasta-lab-text {
     font-size: 1.1rem;
   }
+  
+  .pasta-lab-image img {
+    height: 30vh;
+  }
+  
+  .pasta-lab-video {
+    height: 30vh !important;
+  }
 }
 
 /* News & More Section */
 .news-section {
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 6rem 2rem;
   background: transparent;
   color: var(--neutral-white);
@@ -1262,7 +1300,7 @@ body {
 
 /* Visit Us Section */
 .visit-us-section {
-  padding: 3rem 2rem;
+  padding: 1rem 2rem 3rem 2rem;
   background: transparent;
   color: var(--neutral-white);
 }
@@ -1287,7 +1325,7 @@ body {
 
 .visit-us-content {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 2fr;
   gap: 2rem;
   align-items: start;
 }
@@ -1365,7 +1403,7 @@ body {
 .visit-us-map {
   width: 100%;
   height: 100%;
-  min-height: 350px;
+  min-height: 450px;
   align-self: start;
 }
 
@@ -1391,7 +1429,7 @@ body {
 /* Responsive styles for visit us section */
 @media (max-width: 768px) {
   .visit-us-section {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem 2rem 1rem;
   }
   
   .visit-us-container {
@@ -1417,7 +1455,7 @@ body {
   }
   
   .visit-us-map {
-    min-height: 250px;
+    min-height: 350px;
   }
   
   .address {
@@ -1452,7 +1490,7 @@ body {
   }
   
   .visit-us-map {
-    min-height: 300px;
+    min-height: 320px;
   }
 }
 
@@ -1631,9 +1669,13 @@ body {
 /* Semi-circle reveal image section */
 .semicircle-reveal-section {
   position: relative;
-  height: 100vh;
+  height: calc(50px + (var(--scroll-progress) * 80vh));
+  min-height: 50px;
+  max-height: 80vh;
   overflow: hidden;
   background: var(--background);
+  margin-top: -1rem;
+  transition: height 0.05s ease-out;
 }
 
 .semicircle-reveal-container {
@@ -1641,21 +1683,21 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
 .semicircle-reveal-image {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 80vh;
   overflow: hidden;
   clip-path: ellipse(
-    calc(50px + (var(--scroll-progress) * 150vw)) 
-    calc(25px + (var(--scroll-progress) * 150vh)) 
+    calc(40px + (var(--scroll-progress) * 100vw)) 
+    calc(20px + (var(--scroll-progress) * 60vh)) 
     at 50% 100%
   );
-  transition: clip-path 0.1s ease-out;
+  transition: clip-path 0.05s ease-out;
 }
 
 /* When fully expanded, switch to rectangle */
@@ -1681,28 +1723,44 @@ body {
 /* Mobile responsiveness for the semi-circle reveal effect */
 @media (max-width: 768px) {
   .semicircle-reveal-section {
-    height: 70vh;
+    height: calc(40px + (var(--scroll-progress) * 60vh));
+    min-height: 40px;
+    max-height: 60vh;
+    margin-top: -0.75rem;
   }
   
   .semicircle-reveal-image {
+    height: 60vh;
     clip-path: ellipse(
-      calc(30px + (var(--scroll-progress) * 120vw)) 
-      calc(15px + (var(--scroll-progress) * 120vh)) 
+      calc(35px + (var(--scroll-progress) * 90vw)) 
+      calc(18px + (var(--scroll-progress) * 45vh)) 
       at 50% 100%
     );
+  }
+  
+  .fruit-section {
+    padding: 3rem 1rem 0.5rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .semicircle-reveal-section {
-    height: 60vh;
+    height: calc(30px + (var(--scroll-progress) * 50vh));
+    min-height: 30px;
+    max-height: 50vh;
+    margin-top: -0.5rem;
   }
   
   .semicircle-reveal-image {
+    height: 50vh;
     clip-path: ellipse(
-      calc(20px + (var(--scroll-progress) * 110vw)) 
-      calc(10px + (var(--scroll-progress) * 110vh)) 
+      calc(30px + (var(--scroll-progress) * 80vw)) 
+      calc(15px + (var(--scroll-progress) * 35vh)) 
       at 50% 100%
     );
+  }
+  
+  .fruit-section {
+    padding: 2rem 1rem 0.5rem 1rem;
   }
 }

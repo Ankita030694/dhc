@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
         {/* Left - EVOO Logo */}
         <div className="footer-logo">
-          <Image src="/trans.png" alt="Footer logo" width={400} height={400} />
+          <Image src="/trans.png" alt="Footer logo" width={200} height={200} />
         </div>
 
         {/* Center - Join Our Team */}

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import VanishingText from '../components/VanishingText';
@@ -8,6 +9,54 @@ import VanishingText from '../components/VanishingText';
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [sectionProgress, setSectionProgress] = useState(0);
+  
+  // Refs for experience section animations
+  const experienceSectionRef = useRef<HTMLElement>(null);
+  const restaurantImageRef = useRef<HTMLDivElement>(null);
+  const foodImageRef = useRef<HTMLDivElement>(null);
+  
+  // Scroll-based transforms for image zoom
+  const { scrollYProgress } = useScroll({
+    target: experienceSectionRef,
+    offset: ["start center", "end center"]
+  });
+  
+  // Transform scroll progress to scale values (1.0 to 1.2, then stop at 1.2)
+  // Start zooming only when the section is visible
+  const restaurantImageScale = useTransform(
+    scrollYProgress,
+    [0.3, 0.6, 0.8, 1],
+    [1, 1.2, 1.2, 1.2]
+  );
+  
+  const foodImageScale = useTransform(
+    scrollYProgress,
+    [0.5, 0.8, 1, 1],
+    [1, 1.2, 1.2, 1.2]
+  );
+  
+  // Animation variants for experience section elements
+  const fadeInUpVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1
+    }
+  };
+  
+  const staggerContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +64,22 @@ export default function Home() {
       setScrollY(currentScrollY);
       
       // Calculate progress specifically for the semi-circle section
-      // Assuming the section starts around 600px from top (after Hero + fruit section)
-      const sectionStart = 600;
-      const sectionHeight = window.innerHeight;
-      const progress = Math.max(0, Math.min(1, (currentScrollY - sectionStart) / sectionHeight));
-      setSectionProgress(progress);
+      // Get the fruit section element to calculate when semicircle should start
+      const fruitSection = document.querySelector('.fruit-section') as HTMLElement;
+      const semicircleSection = document.querySelector('.semicircle-reveal-section') as HTMLElement;
+      
+      if (fruitSection && semicircleSection) {
+        // Start expanding when we reach the semicircle section
+        const sectionStart = fruitSection.offsetTop + fruitSection.offsetHeight - window.innerHeight * 0.8;
+        const sectionHeight = window.innerHeight * 1.2; // Make expansion take longer
+        const progress = Math.max(0, Math.min(1, (currentScrollY - sectionStart) / sectionHeight));
+        setSectionProgress(progress);
+        
+        // Debug logging (remove in production)
+        if (currentScrollY > sectionStart - 100) {
+          console.log('Scroll Progress:', progress, 'ScrollY:', currentScrollY, 'Start:', sectionStart);
+        }
+      }
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -40,7 +100,12 @@ export default function Home() {
       </section>
       
       {/* Semi-circle reveal image section */}
-      <section className="semicircle-reveal-section">
+      <section 
+        className="semicircle-reveal-section"
+        style={{
+          '--scroll-progress': sectionProgress
+        } as React.CSSProperties & { '--scroll-progress': number }}
+      >
         <div className="semicircle-reveal-container">
           <div 
             className={`semicircle-reveal-image ${sectionProgress >= 0.95 ? 'fully-expanded' : ''}`}
@@ -54,58 +119,119 @@ export default function Home() {
       </section>
       
       {/* THE EXPERIENCE Section */}
-      <section className="experience-section">
-        <div className="experience-container">
-          <h2 className="experience-heading">
+      <motion.section 
+        ref={experienceSectionRef}
+        className="experience-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerContainerVariants}
+      >
+        <motion.div className="experience-container" variants={staggerContainerVariants}>
+          <motion.h2 
+            className="experience-heading" 
+            variants={fadeInUpVariants}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <VanishingText threshold={0.4} staggerDelay={30}>
               THE EXPERIENCE
             </VanishingText>
-          </h2>
-          <p className="experience-intro">
+          </motion.h2>
+          <motion.p 
+            className="experience-intro" 
+            variants={fadeInUpVariants}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
             <VanishingText threshold={0.3} staggerDelay={20}>
               Delhi House Café is more than just a restaurant; it's a journey through Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.
             </VanishingText>
-          </p>
+          </motion.p>
           
           {/* First subsection - Image left, text right */}
-          <div className="experience-subsection">
-            <div className="experience-image">
+          <motion.div 
+            className="experience-subsection" 
+            variants={fadeInUpVariants}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
+            <motion.div 
+              ref={restaurantImageRef}
+              className="experience-image"
+              style={{ 
+                scale: restaurantImageScale,
+                transformOrigin: "center"
+              }}
+            >
               <img src="/restaurant.jpg" alt="Restaurant ambiance" />
-            </div>
-            <div className="experience-content">
-              <h3 className="experience-subheading">
+            </motion.div>
+            <motion.div 
+              className="experience-content"
+              variants={fadeInUpVariants}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+            >
+              <motion.h3 
+                className="experience-subheading" 
+                variants={fadeInUpVariants}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+              >
                 <VanishingText threshold={0.35} staggerDelay={25}>
                   THE RESTAURANT
                 </VanishingText>
-              </h3>
-              <p className="experience-text">
+              </motion.h3>
+              <motion.p 
+                className="experience-text" 
+                variants={fadeInUpVariants}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 1.0 }}
+              >
                 <VanishingText threshold={0.3} staggerDelay={15}>
                   Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
                 </VanishingText>
-              </p>
-            </div>
-          </div>
+              </motion.p>
+            </motion.div>
+          </motion.div>
           
           {/* Second subsection - Text left, image right */}
-          <div className="experience-subsection">
-            <div className="experience-content">
-              <h3 className="experience-subheading">
+          <motion.div 
+            className="experience-subsection" 
+            variants={fadeInUpVariants}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
+          >
+            <motion.div 
+              className="experience-content"
+              variants={fadeInUpVariants}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
+            >
+              <motion.h3 
+                className="experience-subheading" 
+                variants={fadeInUpVariants}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 1.6 }}
+              >
                 <VanishingText threshold={0.35} staggerDelay={25}>
                   FOOD
                 </VanishingText>
-              </h3>
-              <p className="experience-text">
+              </motion.h3>
+              <motion.p 
+                className="experience-text" 
+                variants={fadeInUpVariants}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 1.8 }}
+              >
                 <VanishingText threshold={0.3} staggerDelay={15}>
                   Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
                 </VanishingText>
-              </p>
-            </div>
-            <div className="experience-image">
+              </motion.p>
+            </motion.div>
+            <motion.div 
+              ref={foodImageRef}
+              className="experience-image"
+              style={{ 
+                scale: foodImageScale,
+                transformOrigin: "center"
+              }}
+            >
               <img src="/food.jpg" alt="Delicious Indian cuisine" />
-            </div>
-          </div>
-        </div>
-      </section>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
       
       {/* Images & Video Section */}
       <section className="pasta-lab-section mx-20">
@@ -207,6 +333,24 @@ export default function Home() {
                   <p className="hours-detail">Sunday: 12–9:30 pm</p>
                 </div>
               </div>
+
+              {/* Location Section */}
+              <div className="info-group">
+                <h3 className="info-heading">LOCATION:</h3>
+                <div className="info-item">
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="address">Unit 10 Exchange Sq, Manchester M4 3TR, United Kingdom</p>
+                </div>
+              </div>
+
+              {/* Nearest Landmark Section */}
+              <div className="info-group">
+                <h3 className="info-heading">NEAREST LANDMARK</h3>
+                <div className="info-item">
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="landmark">Corn Exchange Manchester</p>
+                </div>
+              </div>
             </div>
 
             {/* Right side - Google Maps */}
@@ -222,27 +366,6 @@ export default function Home() {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="EVOO Pizzeria Manchester Location"
                 />
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom section - Location and Landmark */}
-          <div className="visit-us-bottom">
-            {/* Location Section */}
-            <div className="info-group">
-              <h3 className="info-heading">LOCATION:</h3>
-              <div className="info-item">
-                <h4 className="location-name">MANCHESTER</h4>
-                <p className="address">Unit 10 Exchange Sq, Manchester M4 3TR, United Kingdom</p>
-              </div>
-            </div>
-
-            {/* Nearest Landmark Section */}
-            <div className="info-group">
-              <h3 className="info-heading">NEAREST LANDMARK</h3>
-              <div className="info-item">
-                <h4 className="location-name">MANCHESTER</h4>
-                <p className="landmark">Corn Exchange Manchester</p>
               </div>
             </div>
           </div>
