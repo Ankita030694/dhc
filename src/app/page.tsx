@@ -35,16 +35,44 @@ export default function Home() {
     [1, 1.2, 1.2, 1.2]
   );
   
-  // Animation variants for experience section elements
+  // Enhanced animation variants for experience section elements
   const fadeInUpVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60,
-      scale: 0.95
+      y: 80,
+      scale: 0.9,
+      filter: "blur(4px)"
     },
     visible: { 
       opacity: 1, 
       y: 0,
+      scale: 1,
+      filter: "blur(0px)"
+    }
+  };
+
+  const slideInFromLeftVariants = {
+    hidden: {
+      opacity: 0,
+      x: -100,
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1
+    }
+  };
+
+  const slideInFromRightVariants = {
+    hidden: {
+      opacity: 0,
+      x: 100,
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
       scale: 1
     }
   };
@@ -53,8 +81,20 @@ export default function Home() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.3,
+        delayChildren: 0.2
       }
+    }
+  };
+
+  const textRevealVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40
+    },
+    visible: {
+      opacity: 1,
+      y: 0
     }
   };
 
@@ -131,31 +171,32 @@ export default function Home() {
           <motion.h2 
             className="experience-heading" 
             variants={fadeInUpVariants}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <VanishingText threshold={0.4} staggerDelay={30}>
+            <VanishingText threshold={0.4} staggerDelay={25}>
               THE EXPERIENCE
             </VanishingText>
           </motion.h2>
           <motion.p 
             className="experience-intro" 
-            variants={fadeInUpVariants}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            variants={textRevealVariants}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <VanishingText threshold={0.3} staggerDelay={20}>
-              Delhi House Café is more than just a restaurant; it's a journey through Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.
-            </VanishingText>
+
+              Delhi House Café is more than just a restaurant; it's a journey through <br /> Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.
+
           </motion.p>
           
           {/* First subsection - Image left, text right */}
           <motion.div 
             className="experience-subsection" 
-            variants={fadeInUpVariants}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            variants={staggerContainerVariants}
           >
             <motion.div 
               ref={restaurantImageRef}
               className="experience-image"
+              variants={slideInFromLeftVariants}
+              transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
               style={{ 
                 scale: restaurantImageScale,
                 transformOrigin: "center"
@@ -165,26 +206,26 @@ export default function Home() {
             </motion.div>
             <motion.div 
               className="experience-content"
-              variants={fadeInUpVariants}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+              variants={slideInFromRightVariants}
+              transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <motion.h3 
                 className="experience-subheading" 
-                variants={fadeInUpVariants}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                variants={textRevealVariants}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <VanishingText threshold={0.35} staggerDelay={25}>
+                <VanishingText threshold={0.35} staggerDelay={20}>
                   THE RESTAURANT
                 </VanishingText>
               </motion.h3>
               <motion.p 
                 className="experience-text" 
-                variants={fadeInUpVariants}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.0 }}
+                variants={textRevealVariants}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <VanishingText threshold={0.3} staggerDelay={15}>
-                  Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
-                </VanishingText>
+
+                  Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on <br /> classic Indian flavours. The vibrant ambiance, <br /> crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
+
               </motion.p>
             </motion.div>
           </motion.div>
@@ -192,36 +233,32 @@ export default function Home() {
           {/* Second subsection - Text left, image right */}
           <motion.div 
             className="experience-subsection" 
-            variants={fadeInUpVariants}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
+            variants={staggerContainerVariants}
           >
             <motion.div 
               className="experience-content"
-              variants={fadeInUpVariants}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
+              variants={slideInFromLeftVariants}
             >
               <motion.h3 
                 className="experience-subheading" 
-                variants={fadeInUpVariants}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.6 }}
+                variants={textRevealVariants}
               >
-                <VanishingText threshold={0.35} staggerDelay={25}>
+                <VanishingText threshold={0.35} staggerDelay={20}>
                   FOOD
                 </VanishingText>
               </motion.h3>
               <motion.p 
                 className="experience-text" 
-                variants={fadeInUpVariants}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 1.8 }}
+                variants={textRevealVariants}
               >
-                <VanishingText threshold={0.3} staggerDelay={15}>
-                  Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
-                </VanishingText>
+                  Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to <br /> create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
+
               </motion.p>
             </motion.div>
             <motion.div 
               ref={foodImageRef}
               className="experience-image"
+              variants={slideInFromRightVariants}
               style={{ 
                 scale: foodImageScale,
                 transformOrigin: "center"
