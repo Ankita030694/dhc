@@ -6,6 +6,16 @@ import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import VanishingText from '../components/VanishingText';
 
+// Helper function to split text into word spans
+const splitTextIntoWords = (text: string) => {
+  return text.split(' ').map((word, index, array) => (
+    <span key={index} className="reveal-word">
+      {word}
+      {index < array.length - 1 && ' '}
+    </span>
+  ));
+};
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [sectionProgress, setSectionProgress] = useState(0);
@@ -14,6 +24,9 @@ export default function Home() {
   const experienceSectionRef = useRef<HTMLElement>(null);
   const restaurantImageRef = useRef<HTMLDivElement>(null);
   const foodImageRef = useRef<HTMLDivElement>(null);
+  
+  // Refs for scroll-driven text animation
+  const revealSectionsRef = useRef<HTMLDivElement[]>([]);
   
   // Scroll-based transforms for image zoom
   const { scrollYProgress } = useScroll({
@@ -99,6 +112,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // Initialize reveal sections
+    const sections = document.querySelectorAll('.reveal-section');
+    revealSectionsRef.current = Array.from(sections) as HTMLDivElement[];
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
@@ -122,6 +139,40 @@ export default function Home() {
           setSectionProgress(1);
         }
       }
+
+      // Handle scroll-driven text reveal animation
+      const viewportHeight = window.innerHeight;
+
+      revealSectionsRef.current.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionHeight = rect.height;
+
+        // Calculate progress based on how much of the tall .reveal-section has been scrolled past.
+        // Progress starts when the top of the section is at the top of the viewport (rect.top <= 0).
+        // The total scrollable distance is the section's height minus the viewport's height.
+        const scrollableDistance = sectionHeight - viewportHeight;
+        
+        // As we scroll down, rect.top becomes negative. We use this to calculate progress.
+        const progress = Math.max(0, Math.min(1, (-rect.top) / scrollableDistance));
+        
+        // Update word opacity based on progress
+        const wordElements = section.querySelectorAll('.reveal-word');
+        wordElements.forEach((wordEl, wordIndex) => {
+          const element = wordEl as HTMLElement;
+          const totalWords = wordElements.length;
+          
+          // Map the overall section progress to individual word progress.
+          const wordProgressStart = wordIndex / totalWords;
+          const wordProgressEnd = (wordIndex + 1) / totalWords;
+          
+          const wordProgress = Math.max(0, Math.min(1, 
+            (progress - wordProgressStart) / (wordProgressEnd - wordProgressStart)
+          ));
+          
+          const opacity = 0.2 + (wordProgress * 0.8);
+          element.style.opacity = opacity.toString();
+        });
+      });
     };
     
     // Use throttled scroll handling for better performance
@@ -176,33 +227,30 @@ export default function Home() {
       </section>
       
       {/* THE EXPERIENCE Section */}
-      <motion.section 
-        ref={experienceSectionRef}
-        className="experience-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={staggerContainerVariants}
-      >
-        <motion.div className="experience-container" variants={staggerContainerVariants}>
-          <motion.h2 
-            className="experience-heading" 
-            variants={fadeInUpVariants}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <VanishingText threshold={0.4} staggerDelay={25}>
+      <div className="reveal-section">
+        <motion.section 
+          ref={experienceSectionRef}
+          className="experience-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainerVariants}
+        >
+          <motion.div className="experience-container" variants={staggerContainerVariants}>
+            <motion.h2 
+              className="experience-heading" 
+              variants={fadeInUpVariants}
+              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
               THE EXPERIENCE
-            </VanishingText>
-          </motion.h2>
-          <motion.p 
-            className="experience-intro" 
-            variants={textRevealVariants}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-
-              Delhi House Café is more than just a restaurant; it's a journey through <br /> Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.
-
-          </motion.p>
+            </motion.h2>
+            <motion.p 
+              className="experience-intro" 
+              variants={textRevealVariants}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {splitTextIntoWords("Delhi House Café is more than just a restaurant; it's a journey through Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.")}
+            </motion.p>
           
           {/* First subsection - Image left, text right */}
           <motion.div 
@@ -240,9 +288,7 @@ export default function Home() {
                 variants={textRevealVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-
-                  Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on <br /> classic Indian flavours. The vibrant ambiance, <br /> crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.
-
+                {splitTextIntoWords("Delhi House Café is where tradition meets modern dining. From the narrow streets of Delhi to the heart of Manchester, it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -268,8 +314,7 @@ export default function Home() {
                 className="experience-text" 
                 variants={textRevealVariants}
               >
-                  Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to <br /> create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.
-
+                {splitTextIntoWords("Our food celebrates the bold, vibrant flavours of India with a modern twist. Each dish is crafted using fresh, locally sourced ingredients, blending tradition and innovation to create a memorable dining experience. From comforting classics to unique signature creations, every bite is designed to delight your senses.")}
               </motion.p>
             </motion.div>
             <motion.div 
@@ -286,6 +331,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </motion.section>
+      </div>
       
       {/* Images & Video Section */}
       <section className="pasta-lab-section mx-20">

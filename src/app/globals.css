@@ -41,8 +41,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-bodoni-moda);
+  --font-mono: var(--font-bodoni-moda);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,7 +55,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   margin: 0;
   padding: 0;
 }
@@ -186,7 +186,7 @@ body {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.05em;
   margin: 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-optical-sizing: auto;
   text-transform: uppercase;
   font-style: normal;
@@ -315,7 +315,7 @@ body {
 }
 
 .fruit-text {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1.8rem;
   line-height: 1.6;
@@ -375,7 +375,7 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  font-family: "Quicksand", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   color: #DDAB5A;
 }
 
@@ -471,7 +471,7 @@ body {
   border: none;
   color: rgb(242, 242, 242);
   padding: 0.75rem 1.5rem;
-  font-family: "Merchant Thin", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
@@ -497,7 +497,7 @@ body {
 }
 
 .navbar-logo {
-  font-family: "Merchant Thin", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
@@ -522,7 +522,7 @@ body {
   background: transparent;
   border: none;
   color: rgb(242, 242, 242);
-  font-family: "Merchant Thin", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
@@ -660,7 +660,7 @@ body {
 }
 
 .reservation-popup-header h2 {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-size: 2rem;
   background: #121326;
   font-weight: 200;
@@ -860,16 +860,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6rem;
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .experience-heading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 3.5rem;
   text-align: center;
   color: #DDAB5A;
   letter-spacing: 0.08em;
-  margin-bottom: 3rem;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
@@ -888,7 +889,7 @@ body {
 }
 
 .experience-intro {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -897,6 +898,7 @@ body {
   max-width: 900px;
   margin: 0 auto 4rem auto;
   letter-spacing: 0.03em;
+  margin-top: -50px;
 }
 
 .experience-subsection {
@@ -904,9 +906,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: center;
+  justify-items: center;
   min-height: 450px;
-  margin: 2rem 0;
+  margin: 4rem 0;
   position: relative;
+  width: 100%;
 }
 
 /* Animation delays handled by Framer Motion */
@@ -930,6 +934,7 @@ body {
   max-width: 100%;
   position: relative;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  justify-self: center;
 }
 
 .experience-image::before {
@@ -970,10 +975,13 @@ body {
   gap: 2rem;
   padding: 3rem 2rem;
   position: relative;
+  justify-self: center;
+  align-self: center;
+  max-width: 100%;
 }
 
 .experience-subheading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 300;
   font-size: 2.2rem;
   color: #DDAB5A;
@@ -995,7 +1003,7 @@ body {
 }
 
 .experience-text {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1.3rem;
   line-height: 1.8;
@@ -1159,6 +1167,8 @@ body {
     text-align: center;
     min-height: auto;
     margin: 3rem 0;
+    justify-items: center;
+    align-items: center;
   }
   
   .experience-subsection.reverse {
@@ -1256,7 +1266,7 @@ body {
 }
 
 .pasta-lab-heading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 3rem;
   text-align: center;
@@ -1266,7 +1276,7 @@ body {
 }
 
 .pasta-lab-text {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1.5rem;
   line-height: 1.6;
@@ -1366,7 +1376,7 @@ body {
 }
 
 .news-heading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 3rem;
   text-align: center;
@@ -1412,7 +1422,7 @@ body {
 }
 
 .news-title {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 300;
   font-size: 1.5rem;
   color: #DDAB5A;
@@ -1421,7 +1431,7 @@ body {
 }
 
 .news-text {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1rem;
   line-height: 1.6;
@@ -1493,7 +1503,7 @@ body {
 }
 
 .visit-us-heading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 2.2rem;
   text-align: left;
@@ -1523,7 +1533,7 @@ body {
 }
 
 .info-heading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 300;
   font-size: 1.2rem;
   color: #DDAB5A;
@@ -1540,7 +1550,7 @@ body {
 }
 
 .location-name {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 300;
   font-size: 1rem;
   color: var(--neutral-white);
@@ -1554,7 +1564,7 @@ body {
 .hours-detail,
 .address,
 .landmark {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -1565,7 +1575,7 @@ body {
 }
 
 .general-hours {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1rem;
   color: var(--neutral-white);
@@ -1697,7 +1707,7 @@ body {
 }
 
 .footer-logo-text {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 6rem;
   color: var(--neutral-white);
@@ -1715,7 +1725,7 @@ body {
 }
 
 .footer-heading {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 300;
   font-size: 1.2rem;
   color: #DDAB5A;
@@ -1725,7 +1735,7 @@ body {
 }
 
 .footer-email {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 1rem;
   color: var(--neutral-white);
@@ -1781,7 +1791,7 @@ body {
 }
 
 .location-label {
-  font-family: "Merchant Extra Light", sans-serif;
+  font-family: var(--font-bodoni-moda), "Bodoni Moda", serif;
   font-weight: 200;
   font-size: 0.8rem;
   color: var(--neutral-white);
@@ -1843,6 +1853,18 @@ body {
   .social-icons {
     gap: 1.5rem;
   }
+}
+
+/* Scroll-driven text reveal styles */
+.reveal-section {
+  position: relative;
+}
+
+.reveal-word {
+  display: inline;
+  opacity: 0.2;
+  transition: opacity 0.1s ease-out;
+  white-space: pre-wrap;
 }
 
 /* Horizontal slide reveal image section */
