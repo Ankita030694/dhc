@@ -335,13 +335,13 @@ export default function Home() {
       
       {/* Images & Video Section */}
       <section className="pasta-lab-section mx-20">
-        <h1 className="pasta-lab-heading">THE LAB</h1>
+        <h1 className="pasta-lab-heading">THE PATIALA HOUSE</h1>
         <div className="pasta-lab-container">
           {/* Video left, image right */}
           <div className="pasta-lab-images">
             <div className="pasta-lab-image">
               <video
-                src="/hero/evohero.mp4"
+                src="/labvid.mp4"
                 autoPlay
                 loop
                 muted
@@ -363,41 +363,41 @@ export default function Home() {
           <h2 className="news-heading">NEWS & MORE</h2>
           
           <div className="news-grid">
-            {/* EVOO Gurgaon */}
+            {/* Lorem Ipsum Article 1 */}
             <div className="news-item">
               <div className="news-image">
-                <img src="/restaurant.jpg" alt="EVOO Gurgaon restaurant interior" />
+                <img src="/restaurant.jpg" alt="Lorem ipsum restaurant interior" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">EVOO Gurgaon</h3>
+                <h3 className="news-title">Lorem Ipsum Dolor</h3>
                 <p className="news-text">
-                  We look forward to welcoming you into the new space and continue to serve you with the same passion that has always fueled our kitchen.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </div>
             </div>
             
-            {/* Condé Nast Traveller India */}
+            {/* Lorem Ipsum Article 2 */}
             <div className="news-item">
               <div className="news-image">
-                <img src="/restaurant.jpg" alt="Fresh pizza with burrata and arugula" />
+                <img src="/restaurant.jpg" alt="Lorem ipsum cuisine display" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">Condé Nast Traveller India</h3>
+                <h3 className="news-title">Ut Enim Ad Minim</h3>
                 <p className="news-text">
-                  Despite its small size, EVOO ensures a memorable dining experience with attentive service and high-quality seasonal ingredients sourced directly from local farmers.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.
                 </p>
               </div>
             </div>
             
-            {/* Times Food And Night Life */}
+            {/* Lorem Ipsum Article 3 */}
             <div className="news-item">
               <div className="news-image">
-                <img src="/restaurant.jpg" alt="Times Food Awards team celebration" />
+                <img src="/restaurant.jpg" alt="Lorem ipsum dining experience" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">Times Food And Night Life</h3>
+                <h3 className="news-title">Sed Ut Perspiciatis</h3>
                 <p className="news-text">
-                  We are absolutely thrilled to announce that we have won the prestigious Times Food and Nightlife Award 2024 for BEST PIZZA (Delhi).
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.
                 </p>
               </div>
             </div>

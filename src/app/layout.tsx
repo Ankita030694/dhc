@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda } from "next/font/google";
+import { Bad_Script } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "../components/LenisProvider";
 import Navbar from "../components/Navbar";
 
-const bodoniModa = Bodoni_Moda({
-  variable: "--font-bodoni-moda",
+const badScript = Bad_Script({
+  variable: "--font-bad-script",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${bodoniModa.variable} antialiased`}
+        className={`${badScript.variable} antialiased`}
       >
         <Navbar />
         <LenisProvider>
