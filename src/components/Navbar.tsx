@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isReservationPopupOpen, setIsReservationPopupOpen] = useState(false);
+  const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,7 +122,35 @@ const Navbar: React.FC = () => {
         <div className="navbar-right">
           <button className="nav-btn">ABOUT US</button>
           <CurlyDivider />
-          <button className="nav-btn">NEWS & MORE</button>
+          <div 
+            className="menu-dropdown-container"
+            onMouseEnter={() => setIsMenuDropdownOpen(true)}
+            onMouseLeave={() => setIsMenuDropdownOpen(false)}
+          >
+            <button className="nav-btn">MENU</button>
+            {isMenuDropdownOpen && (
+              <div className="menu-dropdown">
+                <a 
+                  href="/food.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="menu-dropdown-item"
+                >
+                  <i className="fas fa-utensils"></i>
+                  Food Menu
+                </a>
+                <a 
+                  href="/drinks.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="menu-dropdown-item"
+                >
+                  <i className="fas fa-cocktail"></i>
+                  Drinks Menu
+                </a>
+              </div>
+            )}
+          </div>
           <CurlyDivider />
           <button className="nav-btn">CONTACT</button>
         </div>

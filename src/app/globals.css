@@ -468,9 +468,10 @@ body {
 
 .reservation-btn {
   background: transparent;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   color: rgb(242, 242, 242);
   padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   font-family: var(--font-bad-script), "Bad Script", cursive;
   font-weight: 400;
   font-style: normal;
@@ -488,12 +489,17 @@ body {
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .reservation-btn:hover {
   color: var(--accent-light-yellow);
+  border-color: var(--accent-light-yellow);
   transform: translateY(-2px);
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
 }
 
 .navbar-logo {
@@ -563,6 +569,93 @@ body {
   width: 100%;
 }
 
+/* Menu Dropdown Styles */
+.menu-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(18, 19, 38, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  min-width: 200px;
+  padding: 0.75rem 0;
+  margin-top: 0.5rem;
+  z-index: 1001;
+  animation: dropdownFadeIn 0.3s ease-out;
+}
+
+.menu-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(18, 19, 38, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+  border-right: none;
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(45deg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.menu-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: rgb(242, 242, 242);
+  text-decoration: none;
+  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.menu-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-light-yellow);
+  transform: translateX(4px);
+}
+
+.menu-dropdown-item i {
+  font-size: 14px;
+  color: var(--accent-light-yellow);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.menu-dropdown-item:hover i {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 /* Responsive Navbar */
 @media (max-width: 768px) {
   .navbar-container {
@@ -587,6 +680,17 @@ body {
   
   .nav-btn {
     font-size: 0.8rem;
+  }
+  
+  .menu-dropdown {
+    min-width: 180px;
+    padding: 0.5rem 0;
+    margin-top: 0.25rem;
+  }
+  
+  .menu-dropdown-item {
+    padding: 0.6rem 1rem;
+    font-size: 14px;
   }
 }
 
@@ -614,6 +718,22 @@ body {
   
   .nav-btn {
     font-size: 0.7rem;
+  }
+  
+  .menu-dropdown {
+    min-width: 160px;
+    padding: 0.4rem 0;
+    margin-top: 0.2rem;
+  }
+  
+  .menu-dropdown-item {
+    padding: 0.5rem 0.8rem;
+    font-size: 12px;
+    gap: 0.5rem;
+  }
+  
+  .menu-dropdown-item i {
+    font-size: 12px;
   }
 }
 
