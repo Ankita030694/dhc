@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Center - Join Our Team */}
         <div className="footer-center">
           <h3 className="footer-heading">JOIN OUR TEAM</h3>
-          <p className="footer-email">E: careers@dhc.com</p>
+          <p className="footer-email">E: info@delhihousecafe.co.uk</p>
         </div>
 
         {/* Right - Follow Our Journey */}

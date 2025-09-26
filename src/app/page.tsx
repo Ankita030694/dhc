@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import VanishingText from '../components/VanishingText';
+import OpenTableWidget from '../components/OpenTableWidget';
 
 // Helper function to split text into word spans
 const splitTextIntoWords = (text: string) => {
@@ -19,6 +20,7 @@ const splitTextIntoWords = (text: string) => {
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [sectionProgress, setSectionProgress] = useState(0);
+  const [showReservationModal, setShowReservationModal] = useState(false);
   
   // Refs for experience section animations
   const experienceSectionRef = useRef<HTMLElement>(null);
@@ -334,7 +336,7 @@ export default function Home() {
       </div>
       
       {/* Images & Video Section */}
-      <section className="pasta-lab-section mx-20">
+      <section className="pasta-lab-section md:mx-20">
         <h1 className="pasta-lab-heading">THE PATIALA HOUSE</h1>
         <div className="pasta-lab-container">
           {/* Video left, image right */}
@@ -363,44 +365,44 @@ export default function Home() {
           <h2 className="news-heading">NEWS & MORE</h2>
           
           <div className="news-grid">
-            {/* Lorem Ipsum Article 1 */}
-            <div className="news-item">
+            {/* Guardian Review Article */}
+            <a href="https://www.theguardian.com/food/2020/sep/13/jay-rayner-restaurant-review-delhi-house-cafe-manchester-there-is-a-lot-to-enjoy" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/restaurant.jpg" alt="Lorem ipsum restaurant interior" />
+                <img src="/nm1.png" alt="Delhi House Cafe Manchester review" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">Lorem Ipsum Dolor</h3>
+                <h3 className="news-title">Delhi House Cafe Manchester Review</h3>
                 <p className="news-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Jay Rayner reviews Delhi House Cafe in Manchester, praising the restaurant's authentic Delhi flavors and exceptional service.
                 </p>
               </div>
-            </div>
+            </a>
             
-            {/* Lorem Ipsum Article 2 */}
-            <div className="news-item">
+            {/* Confidentials Liverpool Article */}
+            <a href="https://confidentials.com/liverpool/a-look-inside-delhi-house-cafe" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/restaurant.jpg" alt="Lorem ipsum cuisine display" />
+                <img src="/nm2.png" alt="Delhi House Cafe Liverpool opening" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">Ut Enim Ad Minim</h3>
+                <h3 className="news-title">A Look Inside Delhi House Cafe</h3>
                 <p className="news-text">
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.
+                  Family-run Indian restaurant opens its second site at The Royal Albert Dock in Liverpool, bringing authentic Delhi flavors to the historic waterfront.
                 </p>
               </div>
-            </div>
+            </a>
             
-            {/* Lorem Ipsum Article 3 */}
-            <div className="news-item">
+            {/* Liverpool Echo Article */}
+            <a href="https://www.liverpoolecho.co.uk/whats-on/food-drink-news/gallery/first-look-inside-royal-albert-29941494" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/restaurant.jpg" alt="Lorem ipsum dining experience" />
+                <img src="/nm3.png" alt="First look inside Royal Albert Dock restaurant" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">Sed Ut Perspiciatis</h3>
+                <h3 className="news-title">First Look Inside Royal Albert</h3>
                 <p className="news-text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.
+                  Get an exclusive first look at Delhi House Cafe's new Liverpool location at the iconic Royal Albert Dock.
                 </p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -473,6 +475,37 @@ export default function Home() {
       </section>
       
       <Footer />
+      
+      {/* Mobile Reservation Overlay */}
+      <div className="mobile-reservation-overlay">
+        <button 
+          className="mobile-reservation-btn"
+          onClick={() => setShowReservationModal(true)}
+        >
+          <i className="fas fa-calendar-alt"></i>
+          <span>Reserve Table</span>
+        </button>
+      </div>
+
+      {/* Reservation Modal */}
+      {showReservationModal && (
+        <div className="reservation-popup-overlay" onClick={() => setShowReservationModal(false)}>
+          <div className="reservation-popup-content" onClick={(e) => e.stopPropagation()}>
+            <div className="reservation-popup-header">
+              <h2>Make a Reservation</h2>
+              <button 
+                className="reservation-popup-close"
+                onClick={() => setShowReservationModal(false)}
+              >
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="reservation-widget-container">
+              <OpenTableWidget restaurantId="227751" />
+            </div>
+          </div>
+        </div>
+      )}
       
     </main>
   );

@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isReservationPopupOpen, setIsReservationPopupOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,60 +100,121 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`navbar ${isVisible ? 'visible' : ''} ${hasScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        {/* Left - Make a Reservation */}
-        <div className="navbar-left">
-          <button className="reservation-btn" onClick={openReservationPopup}>
-            MAKE A RESERVATION
-          </button>
-        </div>
-        
-        {/* Center - Delhi House Cafe Logo */}
-        <div className="navbar-center">
-          <Image 
-            src="/trans.png" 
-            alt="Delhi House Cafe" 
-            width={100} 
-            height={20}
-            className="navbar-logo"
-            priority
-          />
-        </div>
-        
-        {/* Right - Navigation with Curly Dividers */}
-        <div className="navbar-right">
-          <button className="nav-btn">ABOUT US</button>
-          <CurlyDivider />
-          <div 
-            className="menu-dropdown-container"
-            onMouseEnter={() => setIsMenuDropdownOpen(true)}
-            onMouseLeave={() => setIsMenuDropdownOpen(false)}
-          >
-            <button className="nav-btn">MENU</button>
-            {isMenuDropdownOpen && (
-              <div className="menu-dropdown">
-                <a 
-                  href="/food.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="menu-dropdown-item"
-                >
-                  <i className="fas fa-utensils"></i>
-                  Food Menu
-                </a>
-                <a 
-                  href="/drinks.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="menu-dropdown-item"
-                >
-                  <i className="fas fa-cocktail"></i>
-                  Drinks Menu
-                </a>
-              </div>
-            )}
+        {/* Mobile Layout */}
+        <div className="navbar-mobile">
+          {/* Mobile Logo */}
+          <div className="navbar-mobile-logo">
+            <Image 
+              src="/trans.png" 
+              alt="Delhi House Cafe" 
+              width={80} 
+              height={16}
+              className="navbar-logo"
+              priority
+            />
           </div>
-          <CurlyDivider />
-          <button className="nav-btn">CONTACT</button>
+          
+          {/* Mobile Burger Menu */}
+          <button 
+            className="mobile-menu-toggle"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+          </button>
+          
+          {/* Mobile Menu Dropdown */}
+          {isMobileMenuOpen && (
+            <div className="mobile-menu-dropdown">
+              <button className="reservation-btn mobile" onClick={openReservationPopup}>
+                MAKE A RESERVATION
+              </button>
+              <div className="mobile-nav-links">
+                <button className="nav-btn mobile">ABOUT US</button>
+                <div className="mobile-menu-section">
+                  <span className="mobile-menu-label">MENU</span>
+                  <a 
+                    href="/food.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="mobile-menu-item"
+                  >
+                    <i className="fas fa-utensils"></i>
+                    Food Menu
+                  </a>
+                  <a 
+                    href="/drinks.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="mobile-menu-item"
+                  >
+                    <i className="fas fa-cocktail"></i>
+                    Drinks Menu
+                  </a>
+                </div>
+                <button className="nav-btn mobile">CONTACT</button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="navbar-desktop">
+          {/* Left - Make a Reservation */}
+          <div className="navbar-left">
+            <button className="reservation-btn" onClick={openReservationPopup}>
+              MAKE A RESERVATION
+            </button>
+          </div>
+          
+          {/* Center - Delhi House Cafe Logo */}
+          <div className="navbar-center">
+            <Image 
+              src="/trans.png" 
+              alt="Delhi House Cafe" 
+              width={100} 
+              height={20}
+              className="navbar-logo"
+              priority
+            />
+          </div>
+          
+          {/* Right - Navigation with Curly Dividers */}
+          <div className="navbar-right">
+            <button className="nav-btn">ABOUT US</button>
+            <CurlyDivider />
+            <div 
+              className="menu-dropdown-container"
+              onMouseEnter={() => setIsMenuDropdownOpen(true)}
+              onMouseLeave={() => setIsMenuDropdownOpen(false)}
+            >
+              <button className="nav-btn">MENU</button>
+              {isMenuDropdownOpen && (
+                <div className="menu-dropdown">
+                  <a 
+                    href="/food.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="menu-dropdown-item"
+                  >
+                    <i className="fas fa-utensils"></i>
+                    Food Menu
+                  </a>
+                  <a 
+                    href="/drinks.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="menu-dropdown-item"
+                  >
+                    <i className="fas fa-cocktail"></i>
+                    Drinks Menu
+                  </a>
+                </div>
+              )}
+            </div>
+            <CurlyDivider />
+            <button className="nav-btn">CONTACT</button>
+          </div>
         </div>
       </div>
 

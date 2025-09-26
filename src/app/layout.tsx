@@ -25,7 +25,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Rye&display=swap" rel="stylesheet" />
                <link href="https://fonts.cdnfonts.com/css/merchant" rel="stylesheet" />
                <link href="https://fonts.cdnfonts.com/css/merchant-extra-light" rel="stylesheet" />
         <link 
