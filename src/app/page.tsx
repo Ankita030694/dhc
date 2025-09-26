@@ -422,6 +422,10 @@ export default function Home() {
                   <h4 className="location-name">MANCHESTER</h4>
                   <p className="contact-detail">+44 161 834 3333</p>
                 </div>
+                <div className="info-item">
+                  <h4 className="location-name">LIVERPOOL</h4>
+                  <p className="contact-detail">+44 151 708 7416</p>
+                </div>
               </div>
 
               {/* Hours Section */}
@@ -430,6 +434,13 @@ export default function Home() {
                 
                 <div className="info-item">
                   <h4 className="location-name">MANCHESTER</h4>
+                  <p className="hours-detail">Monday - Thursday: 12–9:30 pm</p>
+                  <p className="hours-detail">Friday - Saturday: 12–10 pm</p>
+                  <p className="hours-detail">Sunday: 12–9:30 pm</p>
+                </div>
+                
+                <div className="info-item">
+                  <h4 className="location-name">LIVERPOOL</h4>
                   <p className="hours-detail">Monday - Thursday: 12–9:30 pm</p>
                   <p className="hours-detail">Friday - Saturday: 12–10 pm</p>
                   <p className="hours-detail">Sunday: 12–9:30 pm</p>
@@ -443,6 +454,10 @@ export default function Home() {
                   <h4 className="location-name">MANCHESTER</h4>
                   <p className="address">Unit 10 Exchange Sq, Manchester M4 3TR, United Kingdom</p>
                 </div>
+                <div className="info-item">
+                  <h4 className="location-name">LIVERPOOL</h4>
+                  <p className="address">Unit 2b, Britannia Pavilion, Royal Albert Docks, Liverpool L3 4AD, United Kingdom</p>
+                </div>
               </div>
 
               {/* Nearest Landmark Section */}
@@ -451,6 +466,10 @@ export default function Home() {
                 <div className="info-item">
                   <h4 className="location-name">MANCHESTER</h4>
                   <p className="landmark">Corn Exchange Manchester</p>
+                </div>
+                <div className="info-item">
+                  <h4 className="location-name">LIVERPOOL</h4>
+                  <p className="landmark">Royal Albert Dock</p>
                 </div>
               </div>
             </div>

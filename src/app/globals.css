@@ -41,8 +41,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-bad-script);
-  --font-mono: var(--font-bad-script);
+  --font-sans: var(--font-playfair-display);
+  --font-mono: var(--font-playfair-display);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,7 +55,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   margin: 0;
   padding: 0;
 }
@@ -191,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.05em;
   margin: 0;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-optical-sizing: auto;
   text-transform: uppercase;
   font-style: normal;
@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-divider {
   width: 1px;
   height: 140px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.3);
   margin-top: 2rem;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   position: relative;
@@ -210,39 +210,29 @@ h1, h2, h3, h4, h5, h6 {
 .hero-divider::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: -30%;
   left: 0;
   width: 100%;
-  height: 0;
-  background-color: white;
+  height: 30%;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.8) 20%, 
+    rgba(255, 255, 255, 1) 50%, 
+    rgba(255, 255, 255, 0.8) 80%, 
+    rgba(255, 255, 255, 0) 100%
+  );
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-  animation: expandLineLoop 3s ease-in-out infinite;
+  animation: verticalLineFlow 2s linear infinite;
 }
 
-@keyframes expandLineLoop {
+@keyframes verticalLineFlow {
   0% {
-    height: 2px;
-    border-radius: 50%;
-    transform: translateX(-0.5px);
-    width: 2px;
-  }
-  20% {
-    height: 2px;
-    border-radius: 50%;
-    transform: translateX(-0.5px);
-    width: 2px;
-  }
-  80% {
-    height: 100%;
-    border-radius: 0;
-    transform: translateX(0);
-    width: 100%;
+    height: 30%;
+    top: -30%;
   }
   100% {
-    height: 2px;
-    border-radius: 50%;
-    transform: translateX(-0.5px);
-    width: 2px;
+    height: 30%;
+    top: 100%;
   }
 }
 
@@ -268,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .hero-divider::before {
-    animation: expandLineLoop 3s ease-in-out infinite;
+    animation: verticalLineFlow 2s linear infinite;
   }
 }
 
@@ -283,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .hero-divider::before {
-    animation: expandLineLoop 3s ease-in-out infinite;
+    animation: verticalLineFlow 2s linear infinite;
   }
 }
 
@@ -320,7 +310,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fruit-text {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.8rem;
   line-height: 1.6;
@@ -380,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   color: #DDAB5A;
 }
 
@@ -477,7 +467,7 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(242, 242, 242);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
@@ -508,7 +498,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-logo {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
@@ -533,7 +523,7 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   border: none;
   color: rgb(242, 242, 242);
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
@@ -623,7 +613,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.75rem 1.25rem;
   color: rgb(242, 242, 242);
   text-decoration: none;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.03em;
@@ -676,7 +666,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Navbar Styles */
 .navbar-mobile {
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -741,7 +730,7 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   border: none;
   color: rgb(242, 242, 242);
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -763,7 +752,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #DDAB5A;
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -791,7 +780,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-menu-label {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 1.1rem;
   color: #DDAB5A;
   text-transform: uppercase;
@@ -807,7 +796,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.75rem 1rem;
   color: rgb(242, 242, 242);
   text-decoration: none;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: 0.03em;
@@ -949,7 +938,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .reservation-popup-header h2 {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 2rem;
   background: #121326;
   font-weight: 200;
@@ -1178,7 +1167,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .experience-intro {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -1292,7 +1281,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .experience-text {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.3rem;
   line-height: 1.8;
@@ -1565,7 +1554,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pasta-lab-text {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.5rem;
   line-height: 1.6;
@@ -1738,7 +1727,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-title {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 300;
   font-size: 1.5rem;
   color: #DDAB5A;
@@ -1747,7 +1736,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-text {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1rem;
   line-height: 1.6;
@@ -1866,7 +1855,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .location-name {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 300;
   font-size: 1rem;
   color: var(--neutral-white);
@@ -1880,7 +1869,7 @@ h1, h2, h3, h4, h5, h6 {
 .hours-detail,
 .address,
 .landmark {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -1891,7 +1880,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .general-hours {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1rem;
   color: var(--neutral-white);
@@ -2023,7 +2012,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-logo-text {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 6rem;
   color: var(--neutral-white);
@@ -2051,7 +2040,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-email {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1rem;
   color: var(--neutral-white);
@@ -2107,7 +2096,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .location-label {
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 0.8rem;
   color: var(--neutral-white);
@@ -2304,7 +2293,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--neutral-white);
   padding: 1.5rem 1.5rem 2rem 1.5rem;
   border-radius: 20px 20px 0 0;
-  font-family: var(--font-bad-script), "Bad Script", cursive;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 400;
   font-size: 1rem;
   text-transform: uppercase;

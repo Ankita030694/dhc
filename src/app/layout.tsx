@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Bad_Script } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "../components/LenisProvider";
 import Navbar from "../components/Navbar";
 
-const badScript = Bad_Script({
-  variable: "--font-bad-script",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${badScript.variable} antialiased`}
+        className={`${playfairDisplay.variable} antialiased`}
       >
         <Navbar />
         <LenisProvider>
