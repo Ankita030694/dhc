@@ -14,7 +14,7 @@ export default function OpenTableWidgetSimple({ restaurantId }: OpenTableWidgetS
 
   // Direct HTML embedding approach
   const scriptHTML = `
-    <script type='text/javascript' src='https://www.opentable.co.uk/widget/reservation/loader?rid=${restaurantId}&type=standard&theme=tall&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=true&ot_source=Restaurant%20website&cfe=true'></script>
+    <script type='text/javascript' src='https://www.opentable.co.uk/widget/reservation/loader?rid=227751&rid=369630&type=multi&theme=standard&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
   `;
 
   return (

@@ -6,7 +6,7 @@ interface OpenTableIframeProps {
 
 export default function OpenTableIframe({ restaurantId }: OpenTableIframeProps) {
   // Create the OpenTable URL for direct iframe embedding
-  const openTableUrl = `https://www.opentable.co.uk/widget/reservation/loader?rid=${restaurantId}&type=standard&theme=tall&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=true&ot_source=Restaurant%20website&cfe=true`;
+  const openTableUrl = `https://www.opentable.co.uk/widget/reservation/loader?rid=227751&rid=369630&type=multi&theme=standard&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website&cfe=true`;
 
   return (
     <div className="opentable-iframe-container" style={{ width: '100%', minHeight: '490px' }}>
@@ -111,7 +111,7 @@ export default function OpenTableIframe({ restaurantId }: OpenTableIframeProps) 
             If the widget above doesn't load, you can book directly through OpenTable:
           </p>
           <a 
-            href={`https://www.opentable.co.uk/restref/client/?rid=${restaurantId}`}
+            href={`https://www.opentable.co.uk/restref/client/?rid=227751&rid=369630`}
             target="_blank"
             rel="noopener noreferrer"
             style={{

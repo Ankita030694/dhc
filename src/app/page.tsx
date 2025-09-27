@@ -520,7 +520,7 @@ export default function Home() {
               </button>
             </div>
             <div className="reservation-widget-container">
-              <OpenTableWidget restaurantId="227751" />
+              <OpenTableWidget restaurantIds={["227751", "369630"]} />
             </div>
           </div>
         </div>

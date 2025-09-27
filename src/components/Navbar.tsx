@@ -234,12 +234,11 @@ const Navbar: React.FC = () => {
             </div>
             <div className="reservation-widget-container">
               <iframe 
-                src="https://www.opentable.co.uk/booking/restref/availability?rid=227751&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
+                src="https://www.opentable.co.uk/booking/restref/availability?rid=227751&rid=369630&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
                 width="100%"
                 height="500"
                 frameBorder="0"
                 title="OpenTable Reservation Widget"
-                allowTransparency={true}
                 allow="payment; camera; microphone; geolocation"
                 referrerPolicy="no-referrer-when-downgrade"
                 id="opentable-reservation-iframe"

@@ -277,7 +277,7 @@ export default function BookingForm({ restaurantId, restaurantName }: BookingFor
             Prefer to book directly with OpenTable?
           </p>
           <a
-            href={`https://www.opentable.co.uk/restref/client/?rid=${restaurantId}`}
+            href={`https://www.opentable.co.uk/restref/client/?rid=227751&rid=369630`}
             target="_blank"
             rel="noopener noreferrer"
             style={{

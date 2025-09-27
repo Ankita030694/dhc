@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 interface OpenTableWidgetProps {
-  restaurantId: string;
+  restaurantIds: string | string[];
 }
 
-export default function OpenTableWidget({ restaurantId }: OpenTableWidgetProps) {
+export default function OpenTableWidget({ restaurantIds }: OpenTableWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -14,27 +14,35 @@ export default function OpenTableWidget({ restaurantId }: OpenTableWidgetProps) 
   useEffect(() => {
     const loadWidget = () => {
       try {
+        // Convert restaurantIds to array format
+        const idsArray = Array.isArray(restaurantIds) ? restaurantIds : [restaurantIds];
+        const idsString = idsArray.join('-');
+        
         // Create a unique container ID
-        const containerId = `ot-widget-container-${restaurantId}`;
+        const containerId = `ot-widget-container-${idsString}`;
         
         if (widgetRef.current) {
           // Set the container ID
           widgetRef.current.id = containerId;
           
           // Clear any existing content except loading message
-          const existingScript = document.getElementById(`ot-script-${restaurantId}`);
+          const existingScript = document.getElementById(`ot-script-${idsString}`);
           if (existingScript) {
             existingScript.remove();
           }
 
           // Create script element
           const script = document.createElement('script');
-          script.id = `ot-script-${restaurantId}`;
+          script.id = `ot-script-${idsString}`;
           script.type = 'text/javascript';
           script.async = true;
           
+          // Build the URL with multiple restaurant IDs
+          const ridParams = idsArray.map(id => `rid=${id}`).join('&');
+          const widgetType = idsArray.length > 1 ? 'multi' : 'standard';
+          
           // Use HTTPS instead of protocol-relative URL
-          script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=${restaurantId}&type=standard&theme=tall&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=true&ot_source=Restaurant%20website&cfe=true`;
+          script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=227751&rid=369630&type=multi&theme=standard&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website&cfe=true`;
           
           script.onload = () => {
             console.log('OpenTable widget loaded successfully');
@@ -75,7 +83,7 @@ export default function OpenTableWidget({ restaurantId }: OpenTableWidgetProps) 
     };
 
     loadWidget();
-  }, [restaurantId, isLoading]);
+  }, [restaurantIds, isLoading]);
 
   if (hasError) {
     return (
