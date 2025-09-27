@@ -337,7 +337,7 @@ export default function Home() {
       
       {/* Images & Video Section */}
       <section className="pasta-lab-section md:mx-20">
-        <h1 className="pasta-lab-heading">THE PATIALA HOUSE</h1>
+        <h1 className="pasta-lab-heading">THE PATIALA BAR</h1>
         <div className="pasta-lab-container">
           {/* Video left, image right */}
           <div className="pasta-lab-images">
