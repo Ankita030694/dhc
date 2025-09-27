@@ -269,7 +269,7 @@ export default function Home() {
                 transformOrigin: "center"
               }}
             >
-              <img src="/restaurant.jpg" alt="Restaurant ambiance" />
+              <img src="/3.jpg" alt="Restaurant ambiance" />
             </motion.div>
             <motion.div 
               className="experience-content"
@@ -328,7 +328,7 @@ export default function Home() {
                 transformOrigin: "center"
               }}
             >
-              <img src="/food.jpg" alt="Delicious Indian cuisine" />
+              <img src="/1.jpg" alt="Delicious Indian cuisine" />
             </motion.div>
           </motion.div>
         </motion.div>
