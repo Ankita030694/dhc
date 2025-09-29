@@ -341,7 +341,7 @@ export default function Home() {
         <div className="pasta-lab-container">
           {/* Video left, image right */}
           <div className="pasta-lab-images">
-            <div className="pasta-lab-image">
+            {/* <div className="pasta-lab-image">
               <video
                 src="/labvid.mp4"
                 autoPlay
@@ -351,6 +351,9 @@ export default function Home() {
                 className="pasta-lab-video"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
               />
+            </div> */}
+            <div className="pasta-lab-image">
+              <img src="/2.jpg" alt="Image 2" />
             </div>
             <div className="pasta-lab-image">
               <img src="/img2.jpg" alt="Image 2" />
