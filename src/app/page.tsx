@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import VanishingText from '../components/VanishingText';
-import OpenTableWidget from '../components/OpenTableWidget';
 
 // Helper function to split text into word spans
 const splitTextIntoWords = (text: string) => {
@@ -20,7 +19,7 @@ const splitTextIntoWords = (text: string) => {
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [sectionProgress, setSectionProgress] = useState(0);
-  const [showReservationModal, setShowReservationModal] = useState(false);
+  const [isReservationPopupOpen, setIsReservationPopupOpen] = useState(false);
   
   // Refs for experience section animations
   const experienceSectionRef = useRef<HTMLElement>(null);
@@ -112,6 +111,51 @@ export default function Home() {
       y: 0
     }
   };
+
+  const openReservationPopup = () => {
+    setIsReservationPopupOpen(true);
+  };
+
+  const closeReservationPopup = () => {
+    setIsReservationPopupOpen(false);
+  };
+
+  // Prevent body scroll when popup is open and handle iframe navigation
+  useEffect(() => {
+    if (isReservationPopupOpen) {
+      document.body.style.overflow = 'hidden';
+      
+      // Add message listener for iframe communication
+      const handleMessage = (event: MessageEvent) => {
+        // Handle messages from OpenTable iframe
+        if (event.origin.includes('opentable.co.uk')) {
+          console.log('OpenTable iframe message:', event.data);
+          
+          // If OpenTable tries to navigate, we can handle it here
+          if (event.data && typeof event.data === 'object') {
+            if (event.data.type === 'navigation' || event.data.action === 'redirect') {
+              // Prevent external navigation by not allowing it
+              event.preventDefault();
+              return false;
+            }
+          }
+        }
+      };
+
+      window.addEventListener('message', handleMessage);
+      
+      return () => {
+        window.removeEventListener('message', handleMessage);
+      };
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isReservationPopupOpen]);
 
   useEffect(() => {
     // Initialize reveal sections
@@ -502,7 +546,7 @@ export default function Home() {
       <div className="mobile-reservation-overlay">
         <button 
           className="mobile-reservation-btn"
-          onClick={() => setShowReservationModal(true)}
+          onClick={openReservationPopup}
         >
           <i className="fas fa-calendar-alt"></i>
           <span>Reserve Table</span>
@@ -510,20 +554,31 @@ export default function Home() {
       </div>
 
       {/* Reservation Modal */}
-      {showReservationModal && (
-        <div className="reservation-popup-overlay" onClick={() => setShowReservationModal(false)}>
+      {isReservationPopupOpen && (
+        <div className="reservation-popup-overlay" onClick={closeReservationPopup}>
           <div className="reservation-popup-content" onClick={(e) => e.stopPropagation()}>
             <div className="reservation-popup-header">
               <h2>Make a Reservation</h2>
               <button 
                 className="reservation-popup-close"
-                onClick={() => setShowReservationModal(false)}
+                onClick={closeReservationPopup}
+                aria-label="Close reservation popup"
               >
                 <i className="fas fa-times"></i>
               </button>
             </div>
             <div className="reservation-widget-container">
-              <OpenTableWidget restaurantIds={["227751", "369630"]} />
+              <iframe 
+                src="https://www.opentable.co.uk/booking/restref/availability?rid=227751&rid=369630&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
+                width="100%"
+                height="500"
+                frameBorder="0"
+                title="OpenTable Reservation Widget"
+                allow="payment; camera; microphone; geolocation"
+                referrerPolicy="no-referrer-when-downgrade"
+                id="opentable-reservation-iframe"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+              />
             </div>
           </div>
         </div>
