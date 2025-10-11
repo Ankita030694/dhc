@@ -192,14 +192,7 @@ export default function AboutUs() {
       {/* About Us Hero Section */}
       <section className="about-hero-section">
         <div className="about-hero-image-container">
-          <Image 
-            src="/heroabout.jpg" 
-            alt="Delhi House Café - Our Story" 
-            fill
-            priority
-            style={{ objectFit: 'cover' }}
-            quality={90}
-          />
+        
           <div className="about-hero-overlay"></div>
         </div>
         
