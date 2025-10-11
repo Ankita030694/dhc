@@ -2232,7 +2232,7 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   object-position: center;
   display: block;
-  transform: translateX(calc(100vw - (var(--scroll-progress) * 100vw)));
+  transform: translateX(calc(-100vw + (var(--scroll-progress) * 100vw)));
   will-change: transform;
 }
 

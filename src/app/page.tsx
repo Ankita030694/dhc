@@ -172,7 +172,7 @@ export default function Home() {
       if (fruitSection) {
         // Calculate animation trigger points
         const sectionStart = fruitSection.offsetTop - window.innerHeight;
-        const sectionEnd = fruitSection.offsetTop + fruitSection.offsetHeight;
+        const sectionEnd = fruitSection.offsetTop + (fruitSection.offsetHeight * 0.9); // Complete at 30% of section height
         const animationDistance = sectionEnd - sectionStart;
         
         // Calculate progress based on scroll position
