@@ -131,9 +131,9 @@ const Navbar: React.FC = () => {
                 MAKE A RESERVATION
               </button>
               <div className="mobile-nav-links">
-                <Link href="/about">  
+                <a href="/about">  
                 <button className="nav-btn mobile">ABOUT US</button>
-                </Link>
+                </a>
                 <div className="mobile-menu-section">
                   <span className="mobile-menu-label">MENU</span>
                   <a 
@@ -155,9 +155,9 @@ const Navbar: React.FC = () => {
                     Drinks Menu
                   </a>
                 </div>
-                <Link href="/contact">  
+                <a href="/contact">  
                 <button className="nav-btn mobile">CONTACT</button>
-                </Link>
+                </a>
               </div>
             </div>
           )}
@@ -188,9 +188,9 @@ const Navbar: React.FC = () => {
           
           {/* Right - Navigation with Curly Dividers */}
           <div className="navbar-right">
-            <Link href="/about">  
+            <a href="/about">  
             <button className="nav-btn">ABOUT US</button>
-            </Link>
+            </a>
             <CurlyDivider />
             <div 
               className="menu-dropdown-container"
@@ -222,9 +222,9 @@ const Navbar: React.FC = () => {
               )}
             </div>
             <CurlyDivider />
-            <Link href="/contact">  
+            <a href="/contact">  
             <button className="nav-btn">CONTACT</button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
