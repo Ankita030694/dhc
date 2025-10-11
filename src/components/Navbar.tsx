@@ -155,7 +155,9 @@ const Navbar: React.FC = () => {
                     Drinks Menu
                   </a>
                 </div>
+                <Link href="/contact">  
                 <button className="nav-btn mobile">CONTACT</button>
+                </Link>
               </div>
             </div>
           )}
@@ -220,7 +222,9 @@ const Navbar: React.FC = () => {
               )}
             </div>
             <CurlyDivider />
+            <Link href="/contact">  
             <button className="nav-btn">CONTACT</button>
+            </Link>
           </div>
         </div>
       </div>
