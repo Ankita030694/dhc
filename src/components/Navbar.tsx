@@ -171,6 +171,7 @@ const Navbar: React.FC = () => {
           </div>
           
           {/* Center - Delhi House Cafe Logo */}
+          <Link href="/"> 
           <div className="navbar-center">
             <Image 
               src="/trans.png" 
@@ -181,6 +182,7 @@ const Navbar: React.FC = () => {
               priority
             />
           </div>
+          </Link>
           
           {/* Right - Navigation with Curly Dividers */}
           <div className="navbar-right">

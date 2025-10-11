@@ -234,25 +234,6 @@ export default function AboutUs() {
         </motion.div>
       </section>
       
-      {/* Horizontal slide reveal image section */}
-      <section 
-        className="horizontal-slide-section"
-        style={{
-          '--scroll-progress': sectionProgress
-        } as React.CSSProperties & { '--scroll-progress': number }}
-      >
-        <div className="horizontal-slide-container">
-          <div 
-            className="horizontal-slide-image"
-            style={{
-              '--scroll-progress': sectionProgress
-            } as React.CSSProperties & { '--scroll-progress': number }}
-          >
-            <img src="/aboutslidee.jpg" alt="Delhi House Café ambiance" />
-          </div>
-        </div>
-      </section>
-      
       {/* THE EXPERIENCE Section */}
       <div className="reveal-section">
         <motion.section 
