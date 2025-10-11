@@ -3,14 +3,15 @@ import Image from 'next/image';
 const Hero: React.FC = () => {
   return (
     <div className="hero-section">
-      {/* Full-screen image background */}
-      <Image
-        className="hero-image"
-        src="/heroabout.jpg"
-        alt="Hero background"
-        fill
-        style={{ objectFit: 'cover' }}
-        priority
+      {/* Full-screen video background */}
+      <video
+        className="hero-video"
+        src="/herovid.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
       />
       
       {/* Overlay for better text visibility */}

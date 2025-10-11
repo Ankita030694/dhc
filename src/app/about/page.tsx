@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Hero from '../../components/Hero';
+import Image from 'next/image';
 import Footer from '../../components/Footer';
 import VanishingText from '../../components/VanishingText';
 
@@ -189,8 +189,50 @@ export default function AboutUs() {
 
   return (
     <main>
-      {/* Hero Section */}
-      <Hero />
+      {/* About Us Hero Section */}
+      <section className="about-hero-section">
+        <div className="about-hero-image-container">
+          <Image 
+            src="/heroabout.jpg" 
+            alt="Delhi House Café - Our Story" 
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            quality={90}
+          />
+          <div className="about-hero-overlay"></div>
+        </div>
+        
+        <motion.div 
+          className="about-hero-content"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          <motion.h1 
+            className="about-hero-title"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            ABOUT US
+          </motion.h1>
+          <motion.div 
+            className="about-hero-divider"
+            initial={{ width: 0 }}
+            animate={{ width: '100px' }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          ></motion.div>
+          <motion.p 
+            className="about-hero-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            From Delhi to Manchester - A Journey of Flavours
+          </motion.p>
+        </motion.div>
+      </section>
       
       {/* Horizontal slide reveal image section */}
       <section 

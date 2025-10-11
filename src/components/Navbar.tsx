@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const CurlyDivider: React.FC = () => (
   <svg width="2" height="40" viewBox="0 0 2 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +131,9 @@ const Navbar: React.FC = () => {
                 MAKE A RESERVATION
               </button>
               <div className="mobile-nav-links">
+                <Link href="/about">  
                 <button className="nav-btn mobile">ABOUT US</button>
+                </Link>
                 <div className="mobile-menu-section">
                   <span className="mobile-menu-label">MENU</span>
                   <a 
@@ -181,7 +184,9 @@ const Navbar: React.FC = () => {
           
           {/* Right - Navigation with Curly Dividers */}
           <div className="navbar-right">
+            <Link href="/about">  
             <button className="nav-btn">ABOUT US</button>
+            </Link>
             <CurlyDivider />
             <div 
               className="menu-dropdown-container"
