@@ -45,6 +45,38 @@
   --font-mono: var(--font-playfair-display);
 }
 
+/* Smooth scrolling for mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Touch optimization */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Ensure touch-friendly targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #121326;
@@ -58,6 +90,13 @@ body {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+main {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Apply Rye font to all headings */
@@ -1405,8 +1444,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Vanishing Text Animation */
 .vanishing-text {
-  display: inline;
-  width: 100%;
+  display: inline-block;
+  width: auto;
+  text-align: center;
 }
 
 .vanishing-text .letter {
@@ -1528,11 +1568,14 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .experience-section {
     padding: 6rem 1.5rem;
+    overflow-x: hidden;
   }
   
   .experience-container {
     gap: 4rem;
     max-width: 100%;
+    padding: 0 1rem;
+    overflow-x: hidden;
   }
   
   .experience-heading {
@@ -1554,6 +1597,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 3rem 0;
     justify-items: center;
     align-items: center;
+    overflow-x: hidden;
+    width: 100%;
   }
   
   .experience-subsection.reverse {
@@ -1570,11 +1615,22 @@ h1, h2, h3, h4, h5, h6 {
   .experience-content {
     padding: 2rem 1rem;
     text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .experience-subheading {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: visible;
+    text-align: center;
+    transform: scale(1);
+    transform-origin: center;
   }
 
   .experience-subheading::before {
@@ -1592,10 +1648,13 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
   .experience-section {
     padding: 4rem 1rem;
+    overflow-x: hidden;
   }
   
   .experience-container {
     gap: 3rem;
+    padding: 0 0.5rem;
+    overflow-x: hidden;
   }
   
   .experience-heading {
@@ -1611,6 +1670,8 @@ h1, h2, h3, h4, h5, h6 {
   .experience-subsection {
     margin: 2rem 0;
     gap: 2.5rem;
+    overflow-x: hidden;
+    width: 100%;
   }
   
   .experience-image {
@@ -1620,16 +1681,40 @@ h1, h2, h3, h4, h5, h6 {
   
   .experience-content {
     padding: 1.5rem 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .experience-subheading {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: visible;
+    text-align: center;
+    transform: scale(1);
+    transform-origin: center;
   }
   
   .experience-text {
     font-size: 1.1rem;
     line-height: 1.6;
+  }
+}
+
+/* Extra small screens - ensure headings fit */
+@media (max-width: 390px) {
+  .experience-subheading {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .experience-subheading {
+    font-size: 1rem !important;
   }
 }
 
@@ -2458,12 +2543,14 @@ main .contact-form-section {
 main .contact-form-container {
   max-width: 800px !important;
   margin: 0 auto !important;
+  width: 100%;
 }
 
 .contact-form-content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
 }
 
 .contact-form-heading {
@@ -2710,30 +2797,55 @@ main .contact-form-container {
 }
 
 /* Responsive styles for contact page */
-@media (max-width: 768px) {
-  .contact-hero-title {
-    font-size: 3rem;
-    letter-spacing: 0.1em;
-  }
-  
-  .contact-hero-divider {
-    width: 80px;
-  }
-  
-  .contact-hero-subtitle {
-    font-size: 1.2rem;
+@media (max-width: 1024px) {
+  main .contact-hero-title {
+    font-size: 4rem !important;
   }
   
   .contact-form-section {
-    padding: 4rem 1rem;
+    padding: 5rem 2rem !important;
+  }
+  
+  .contact-visit-content {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main .contact-hero-section {
+    height: 60vh !important;
+    min-height: 500px !important;
+  }
+  
+  main .contact-hero-title {
+    font-size: 2.5rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  
+  main .contact-hero-divider {
+    width: 80px !important;
+  }
+  
+  main .contact-hero-subtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  main .contact-hero-content {
+    padding: 0 1.5rem !important;
+  }
+  
+  main .contact-form-section {
+    padding: 3rem 1.5rem !important;
   }
   
   .contact-form-heading {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .contact-form-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 0 1rem;
   }
   
   .form-row {
@@ -2742,80 +2854,48 @@ main .contact-form-container {
   }
   
   .contact-form {
-    padding: 2rem;
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: 0.9rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+  }
+  
+  .contact-submit-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
   
   .contact-visit-section {
-    padding: 3rem 1rem;
+    padding: 2.5rem 1.5rem;
   }
   
   .contact-visit-heading {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .contact-visit-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
   
   .contact-visit-info {
     gap: 1.5rem;
   }
   
-  .contact-visit-map {
-    min-height: 400px;
-  }
-  
-  .contact-address {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-hero-title {
-    font-size: 2.2rem;
-    letter-spacing: 0.08em;
-  }
-  
-  .contact-hero-divider {
-    width: 60px;
-  }
-  
-  .contact-hero-subtitle {
-    font-size: 1rem;
-  }
-  
-  .contact-hero-content {
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .contact-form-section {
-    padding: 3rem 1rem;
-  }
-  
-  .contact-form-heading {
-    font-size: 1.8rem;
-  }
-  
-  .contact-form-description {
-    font-size: 1rem;
-  }
-  
-  .contact-form {
-    padding: 1.5rem;
-  }
-  
-  .contact-visit-section {
-    padding: 2rem 1rem;
-  }
-  
-  .contact-visit-heading {
-    font-size: 1.8rem;
+  .contact-info-group {
+    gap: 0.8rem;
   }
   
   .contact-info-heading {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .contact-location-name {
@@ -2826,11 +2906,142 @@ main .contact-form-container {
   .contact-hours-detail,
   .contact-address,
   .contact-email {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .contact-visit-map {
     min-height: 350px;
+  }
+  
+  .contact-address {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  main .contact-hero-section {
+    height: 50vh !important;
+    min-height: 400px !important;
+  }
+  
+  main .contact-hero-title {
+    font-size: 1.8rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  
+  main .contact-hero-divider {
+    width: 60px !important;
+  }
+  
+  main .contact-hero-subtitle {
+    font-size: 0.95rem !important;
+  }
+  
+  main .contact-hero-content {
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  main .contact-form-section {
+    padding: 2rem 1rem !important;
+  }
+  
+  .contact-form-heading {
+    font-size: 1.6rem;
+  }
+  
+  .contact-form-description {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+  
+  .contact-form {
+    padding: 1.2rem;
+    gap: 1rem;
+    border-radius: 12px;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: 0.8rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .form-textarea {
+    min-height: 90px;
+  }
+  
+  .contact-submit-btn {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .contact-visit-section {
+    padding: 2rem 1rem;
+  }
+  
+  .contact-visit-heading {
+    font-size: 1.6rem;
+  }
+  
+  .contact-visit-content {
+    gap: 2rem;
+  }
+  
+  .contact-visit-info {
+    gap: 1.2rem;
+  }
+  
+  .contact-info-group {
+    gap: 0.6rem;
+  }
+  
+  .contact-info-heading {
+    font-size: 1rem;
+  }
+  
+  .contact-location-name {
+    font-size: 0.9rem;
+  }
+  
+  .contact-detail,
+  .contact-hours-detail,
+  .contact-address,
+  .contact-email {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .contact-visit-map {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 390px) {
+  main .contact-hero-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .contact-form-heading {
+    font-size: 1.4rem;
+  }
+  
+  .contact-visit-heading {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 360px) {
+  main .contact-hero-title {
+    font-size: 1.3rem !important;
+  }
+  
+  .contact-form {
+    padding: 1rem;
   }
 }
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "../components/LenisProvider";
@@ -13,6 +13,13 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   title: "Delhi House Cafe Manchester - OpenTable Reservations",
   description: "Make a reservation at Delhi House Cafe Manchester through OpenTable. Restaurant ID #227751",
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({

@@ -4,13 +4,12 @@ const Hero: React.FC = () => {
   return (
     <div className="hero-section">
       {/* Full-screen video background */}
-      <video
+      <Image
         className="hero-video"
-        src="/herovid.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
+        src="/herobg.jpg"
+        alt="Hero background"
+        width={1000}
+        height={1000}
         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
       />
       

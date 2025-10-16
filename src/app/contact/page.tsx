@@ -34,7 +34,7 @@ export default function ContactUs() {
       <section className="contact-hero-section">
         <div className="contact-hero-image-container">
           <Image 
-            src="/contacthero.jpg" 
+            src="/food.jpg" 
             alt="Delhi House Café - Contact Us" 
             fill
             priority
