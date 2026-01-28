@@ -21,7 +21,6 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [sectionProgress, setSectionProgress] = useState(0);
   const [isReservationPopupOpen, setIsReservationPopupOpen] = useState(false);
-  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   
   // Refs for experience section animations
   const experienceSectionRef = useRef<HTMLElement>(null);
@@ -124,7 +123,7 @@ export default function Home() {
 
   // Prevent body scroll when any popup is open and handle iframe navigation
   useEffect(() => {
-    const isAnyPopupOpen = isReservationPopupOpen || isImagePopupOpen;
+    const isAnyPopupOpen = isReservationPopupOpen;
     if (isAnyPopupOpen) {
       document.body.style.overflow = 'hidden';
       
@@ -158,15 +157,8 @@ export default function Home() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isReservationPopupOpen, isImagePopupOpen]);
+  }, [isReservationPopupOpen]);
 
-  // Show image popup 5 seconds after page load (one-time per load)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsImagePopupOpen(true);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     // Initialize reveal sections
@@ -595,47 +587,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Timed Image Popup */}
-      {isImagePopupOpen && (
-        <div
-          onClick={() => setIsImagePopupOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'transparent',
-            backdropFilter: 'none',
-            WebkitBackdropFilter: 'none',
-            zIndex: 10000
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              position: 'relative',
-              background: 'transparent',
-              border: 'none',
-              boxShadow: 'none',
-              maxWidth: '90vw',
-              width: '650px'
-            }}
-          >
-            <button
-              className="reservation-popup-close"
-              onClick={() => setIsImagePopupOpen(false)}
-              aria-label="Close image popup"
-              style={{ position: 'absolute', top: 12, right: 12, zIndex: 1 }}
-            >
-              <i className="fas fa-times"></i>
-            </button>
-            <Link href="/christmas" style={{ display: 'block' }}>
-              <img src="/popup.PNG" alt="Promotional popup" style={{ width: '100%', height: 'auto', borderRadius: 12, display: 'block', cursor: 'pointer' }} />
-            </Link>
-          </div>
-        </div>
-      )}
       
     </main>
   );
