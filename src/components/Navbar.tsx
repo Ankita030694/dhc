@@ -161,7 +161,7 @@ const Navbar: React.FC = () => {
                   <div className="mobile-menu-section">
                   <span className="mobile-menu-label">MENU</span>
                   <a 
-                    href="/food.pdf" 
+                    href="/DHC%20-%20Food%20Menu%20SS%2026%20(594%20x%20420%20mm).pdf" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="mobile-menu-item"
@@ -216,7 +216,7 @@ const Navbar: React.FC = () => {
                     <button className="nav-btn desktop-menu-btn">MENU</button>
                     <div className="desktop-menu-items">
                       <a 
-                        href="/food.pdf" 
+                        href="/DHC%20-%20Food%20Menu%20SS%2026%20(594%20x%20420%20mm).pdf" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="desktop-menu-item"
