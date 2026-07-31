@@ -1,18 +1,38 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Footer from '../../components/Footer';
+import { db } from '../../lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 export default function ProductDetail() {
   const [selectedProduct, setSelectedProduct] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showEmailModal, setShowEmailModal] = useState(false);
+  const [isGiftCardsEnabled, setIsGiftCardsEnabled] = useState<boolean | null>(null);
   const [emailForm, setEmailForm] = useState({
     sender: '',
     recipient: ''
   });
+
+  useEffect(() => {
+    const fetchStoreConfig = async () => {
+      try {
+        const configDoc = await getDoc(doc(db, 'settings', 'storeConfig'));
+        if (configDoc.exists()) {
+          const data = configDoc.data();
+          if (data.isGiftCardsEnabled !== undefined) {
+            setIsGiftCardsEnabled(data.isGiftCardsEnabled);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching store config:', error);
+      }
+    };
+    fetchStoreConfig();
+  }, []);
 
   // Gift Card Products
   const products = [
@@ -184,8 +204,17 @@ export default function ProductDetail() {
       </section>
 
       {/* Main Product Section */}
-      <section className="product-main-section">
-        <div className="product-main-container">
+      <section className="product-main-section relative">
+        {isGiftCardsEnabled === false && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center">
+            <div className="bg-white/95 p-8 rounded-xl shadow-2xl text-center max-w-md mx-4 border border-gray-100">
+              <i className="fas fa-gift text-5xl text-[#d4af37] mb-5"></i>
+              <h2 className="text-3xl font-bold text-gray-800 mb-3 font-serif">Temporarily Unavailable</h2>
+              <p className="text-gray-600 font-medium text-lg">We will be back soon with the gift cards. Thank you for your patience!</p>
+            </div>
+          </div>
+        )}
+        <div className={`product-main-container transition-all duration-500 ${isGiftCardsEnabled === false ? 'blur-md opacity-40 pointer-events-none select-none' : ''}`}>
           {/* Left - Image Gallery */}
           <div className="product-gallery">
             <motion.div 
@@ -271,12 +300,12 @@ export default function ProductDetail() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleBuyNowClick}
-                disabled={isProcessing}
+                disabled={isProcessing || isGiftCardsEnabled !== true}
               >
-                {isProcessing ? (
+                {isProcessing || isGiftCardsEnabled === null ? (
                   <>
                     <i className="fas fa-spinner fa-spin"></i>
-                    Processing...
+                    {isProcessing ? 'Processing...' : 'Loading...'}
                   </>
                 ) : (
                   <>

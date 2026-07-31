@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { db } from '../../../lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,6 +24,18 @@ export async function POST(request: NextRequest) {
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+    // Check if gift cards are enabled before proceeding
+    const configDoc = await getDoc(doc(db, 'settings', 'storeConfig'));
+    if (configDoc.exists()) {
+      const data = configDoc.data();
+      if (data.isGiftCardsEnabled === false) {
+        return NextResponse.json(
+          { error: 'Gift card purchases are currently temporarily disabled. Please check back later.' },
+          { status: 403 }
+        );
+      }
+    }
 
     const body = await request.json();
     const { productId, price, productName } = body;

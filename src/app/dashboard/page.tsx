@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { auth, db } from '../../lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { collection, query, orderBy, getDocs, deleteDoc, doc, Timestamp } from 'firebase/firestore';
+import { collection, query, orderBy, getDocs, deleteDoc, doc, Timestamp, getDoc, setDoc } from 'firebase/firestore';
 
 interface FormSubmission {
   id: string;
@@ -24,6 +24,8 @@ export default function Dashboard() {
   const [submissions, setSubmissions] = useState<FormSubmission[]>([]);
   const [selectedSubmission, setSelectedSubmission] = useState<FormSubmission | null>(null);
   const [isDeleting, setIsDeleting] = useState<string | null>(null);
+  const [isGiftCardsEnabled, setIsGiftCardsEnabled] = useState<boolean>(true);
+  const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
   const router = useRouter();
   
   // Safe access to Lenis context in case it's not provided (though it should be)
@@ -40,6 +42,7 @@ export default function Dashboard() {
       if (currentUser) {
         setUser(currentUser);
         fetchSubmissions();
+        fetchStoreConfig();
         setLoading(false);
       } else {
         router.push('/login');
@@ -81,6 +84,38 @@ export default function Dashboard() {
       setSubmissions(data);
     } catch (error) {
       console.error('Error fetching submissions:', error);
+    }
+  };
+
+  const fetchStoreConfig = async () => {
+    try {
+      const configDoc = await getDoc(doc(db, 'settings', 'storeConfig'));
+      if (configDoc.exists()) {
+        const data = configDoc.data();
+        if (data.isGiftCardsEnabled !== undefined) {
+          setIsGiftCardsEnabled(data.isGiftCardsEnabled);
+        }
+      } else {
+        // Create it if it doesn't exist
+        await setDoc(doc(db, 'settings', 'storeConfig'), { isGiftCardsEnabled: true });
+        setIsGiftCardsEnabled(true);
+      }
+    } catch (error) {
+      console.error('Error fetching store config:', error);
+    }
+  };
+
+  const handleToggleGiftCards = async () => {
+    setIsUpdatingSettings(true);
+    const newValue = !isGiftCardsEnabled;
+    try {
+      await setDoc(doc(db, 'settings', 'storeConfig'), { isGiftCardsEnabled: newValue }, { merge: true });
+      setIsGiftCardsEnabled(newValue);
+    } catch (error) {
+      console.error('Error updating store config:', error);
+      alert('Failed to update gift card settings.');
+    } finally {
+      setIsUpdatingSettings(false);
     }
   };
 
@@ -210,6 +245,46 @@ export default function Dashboard() {
               }).length}
             </h3>
             <p className="stat-label">This Week</p>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="dashboard-stat-card"
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <div className="stat-content" style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <p className="stat-label" style={{ margin: 0 }}>Gift Cards Status</p>
+              <i className="fas fa-gift stat-icon" style={{ fontSize: '1.5rem', marginBottom: 0 }}></i>
+            </div>
+            
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontWeight: 'bold', fontSize: '1.2rem', color: isGiftCardsEnabled ? '#10b981' : '#ef4444' }}>
+                {isGiftCardsEnabled ? 'Active' : 'Disabled'}
+              </span>
+              
+              <button 
+                onClick={handleToggleGiftCards}
+                disabled={isUpdatingSettings}
+                style={{ 
+                  backgroundColor: isGiftCardsEnabled ? '#ef4444' : '#10b981',
+                  color: 'white',
+                  border: 'none',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  cursor: isUpdatingSettings ? 'not-allowed' : 'pointer',
+                  fontWeight: 'bold',
+                  fontSize: '0.9rem',
+                  opacity: isUpdatingSettings ? 0.7 : 1,
+                  transition: 'background-color 0.2s'
+                }}
+              >
+                {isUpdatingSettings ? 'Updating...' : (isGiftCardsEnabled ? 'Disable' : 'Enable')}
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>
