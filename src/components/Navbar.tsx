@@ -179,6 +179,9 @@ const Navbar: React.FC = () => {
                     Drinks Menu
                   </a>
                 </div>
+                <a href="/christmas">  
+                <button className="nav-btn mobile">CHRISTMAS</button>
+                </a>
                 <a href="/private-dining">  
                 <button className="nav-btn mobile">PRIVATE DINING</button>
                 </a>
@@ -238,6 +241,9 @@ const Navbar: React.FC = () => {
                     </div>
                   </div>
                  
+                  <a href="/christmas" onClick={() => setIsDesktopMenuOpen(false)}>  
+                    <button className="nav-btn desktop-menu-btn">CHRISTMAS</button>
+                  </a>
                   <a href="/private-dining" onClick={() => setIsDesktopMenuOpen(false)}>  
                     <button className="nav-btn desktop-menu-btn">PRIVATE DINING</button>
                   </a>

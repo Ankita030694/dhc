@@ -39,7 +39,7 @@ export default function OpenTableIframe({ restaurantId }: OpenTableIframeProps) 
           
           <div style={{ padding: '1rem', textAlign: 'center' as const }}>
             <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: 'var(--neutral-gray-600)' }}>
-              Loading reservation system for Delhi House Cafe Manchester...
+              Loading reservation system for Delhi House Cafe Liverpool...
             </p>
             
             {/* Attempt 1: Direct script injection */}

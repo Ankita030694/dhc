@@ -204,8 +204,8 @@ export default function ContactUs() {
                     required
                   >
                     <option value="">Select a location</option>
-                    <option value="Manchester">Manchester</option>
                     <option value="Liverpool">Liverpool</option>
+                    <option value="Manchester (Coming Soon)">Manchester (Coming Soon)</option>
                   </select>
                 </div>
               </div>
@@ -291,12 +291,12 @@ export default function ContactUs() {
                   Phone
                 </h3>
                 <div className="contact-info-item">
-                  <h4 className="contact-location-name">MANCHESTER</h4>
-                  <p className="contact-detail">+44 161 834 3333</p>
+                  <h4 className="contact-location-name">LIVERPOOL</h4>
+                  <p className="contact-detail">+44 151 203 6988</p>
                 </div>
                 <div className="contact-info-item">
-                  <h4 className="contact-location-name">LIVERPOOL</h4>
-                  <p className="contact-detail">+44 151 708 7416</p>
+                  <h4 className="contact-location-name">MANCHESTER</h4>
+                  <p className="contact-detail" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
 
@@ -305,19 +305,15 @@ export default function ContactUs() {
                 <h3 className="contact-info-heading">
                   Hours
                 </h3>
-                
-                <div className="contact-info-item">
-                  <h4 className="contact-location-name">MANCHESTER</h4>
-                  <p className="contact-hours-detail">Monday - Thursday: 12–9:30 pm</p>
-                  <p className="contact-hours-detail">Friday - Saturday: 12–10 pm</p>
-                  <p className="contact-hours-detail">Sunday: 12–9:30 pm</p>
-                </div>
-                
                 <div className="contact-info-item">
                   <h4 className="contact-location-name">LIVERPOOL</h4>
                   <p className="contact-hours-detail">Monday - Thursday: 12–9:30 pm</p>
                   <p className="contact-hours-detail">Friday - Saturday: 12–10 pm</p>
                   <p className="contact-hours-detail">Sunday: 12–9:30 pm</p>
+                </div>
+                <div className="contact-info-item">
+                  <h4 className="contact-location-name">MANCHESTER</h4>
+                  <p className="contact-hours-detail" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
 
@@ -327,12 +323,12 @@ export default function ContactUs() {
                   Location
                 </h3>
                 <div className="contact-info-item">
-                  <h4 className="contact-location-name">MANCHESTER</h4>
-                  <p className="contact-address">Unit 10 Exchange Sq, Manchester M4 3TR, United Kingdom</p>
-                </div>
-                <div className="contact-info-item">
                   <h4 className="contact-location-name">LIVERPOOL</h4>
                   <p className="contact-address">Unit 2b, Britannia Pavilion, Royal Albert Docks, Liverpool L3 4AD, United Kingdom</p>
+                </div>
+                <div className="contact-info-item">
+                  <h4 className="contact-location-name">MANCHESTER</h4>
+                  <p className="contact-address" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
 
@@ -357,14 +353,14 @@ export default function ContactUs() {
             >
               <div className="contact-map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.123456789!2d-2.2436!3d53.4848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1c0a0a0a0a0%3A0x0!2sUnit%2010%20Exchange%20Sq%2C%20Manchester%20M4%203TR%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
+                  src="https://maps.google.com/maps?q=Unit%202b,%20Britannia%20Pavilion,%20Royal%20Albert%20Docks,%20Liverpool%20L3%204AD&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{border: 0}}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Delhi House Café Manchester Location"
+                  title="Delhi House Café Liverpool Location"
                 />
               </div>
             </motion.div>

@@ -11,8 +11,8 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Delhi House Cafe Manchester - OpenTable Reservations",
-  description: "Make a reservation at Delhi House Cafe Manchester through OpenTable. Restaurant ID #227751",
+  title: "Delhi House Cafe Liverpool - Reservations",
+  description: "Make a reservation at Delhi House Cafe Liverpool. Experience authentic Delhi flavours at the Royal Albert Dock.",
 };
 
 export const viewport: Viewport = {

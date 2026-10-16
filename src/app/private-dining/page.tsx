@@ -240,15 +240,15 @@ export default function PrivateDiningPage() {
                 <div className="private-dining-contact-item">
                   <i className="fas fa-phone"></i>
                   <div>
-                    <h4>MANCHESTER</h4>
-                    <p>+44 161 834 3333</p>
+                    <h4>LIVERPOOL</h4>
+                    <p>+44 151 203 6988</p>
                   </div>
                 </div>
                 <div className="private-dining-contact-item">
-                  <i className="fas fa-phone"></i>
+                  <i className="fas fa-clock"></i>
                   <div>
-                    <h4>LIVERPOOL</h4>
-                    <p>+44 151 708 7416</p>
+                    <h4>MANCHESTER</h4>
+                    <p style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                   </div>
                 </div>
                 <div className="private-dining-contact-item">

@@ -222,7 +222,7 @@ export default function AboutUs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            From Delhi to Manchester - A Journey of Flavours
+            From Delhi to Liverpool & Manchester (Coming Soon) - A Journey of Flavours
           </motion.p>
         </motion.div>
       </section>
@@ -274,7 +274,7 @@ export default function AboutUs() {
                 variants={textRevealVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                {splitTextIntoWords("Delhi House was born in Manchester in 2020, a family-run venture owned by the Lamba family, who made the journey from Delhi to the UK with a dream to share the city they love. We brought with us not just recipes and traditions from Delhi, but the very spirit of the city itself.")}
+                {splitTextIntoWords("Delhi House is a family-run venture owned by the Lamba family, who made the journey from Delhi to the UK with a dream to share the city they love. We brought with us not just recipes and traditions from Delhi, but the very spirit of the city itself.")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -347,7 +347,7 @@ export default function AboutUs() {
                 variants={textRevealVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                {splitTextIntoWords("Delhi House is our way of bottling that essence and sharing it here in Manchester & Liverpool. Each plate, each glass, each corner is inspired by the stories and flavours of the capital: complex, surprising, layered, and deeply memorable.")}
+                {splitTextIntoWords("Delhi House is our way of bottling that essence and sharing it here in Liverpool and soon in Manchester. Each plate, each glass, each corner is inspired by the stories and flavours of the capital: complex, surprising, layered, and deeply memorable.")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -399,31 +399,27 @@ export default function AboutUs() {
               <div className="info-group">
                 <h3 className="info-heading">PHONE:</h3>
                 <div className="info-item">
-                  <h4 className="location-name">MANCHESTER</h4>
-                  <p className="contact-detail">+44 161 834 3333</p>
+                  <h4 className="location-name">LIVERPOOL</h4>
+                  <p className="contact-detail">+44 151 203 6988</p>
                 </div>
                 <div className="info-item">
-                  <h4 className="location-name">LIVERPOOL</h4>
-                  <p className="contact-detail">+44 151 708 7416</p>
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="contact-detail" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
 
               {/* Hours Section */}
               <div className="info-group">
                 <h3 className="info-heading">HOURS:</h3>
-                
-                <div className="info-item">
-                  <h4 className="location-name">MANCHESTER</h4>
-                  <p className="hours-detail">Monday - Thursday: 12–9:30 pm</p>
-                  <p className="hours-detail">Friday - Saturday: 12–10 pm</p>
-                  <p className="hours-detail">Sunday: 12–9:30 pm</p>
-                </div>
-                
                 <div className="info-item">
                   <h4 className="location-name">LIVERPOOL</h4>
                   <p className="hours-detail">Monday - Thursday: 12–9:30 pm</p>
                   <p className="hours-detail">Friday - Saturday: 12–10 pm</p>
                   <p className="hours-detail">Sunday: 12–9:30 pm</p>
+                </div>
+                <div className="info-item">
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="hours-detail" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
 
@@ -431,12 +427,12 @@ export default function AboutUs() {
               <div className="info-group">
                 <h3 className="info-heading">LOCATION:</h3>
                 <div className="info-item">
-                  <h4 className="location-name">MANCHESTER</h4>
-                  <p className="address">Unit 10 Exchange Sq, Manchester M4 3TR, United Kingdom</p>
-                </div>
-                <div className="info-item">
                   <h4 className="location-name">LIVERPOOL</h4>
                   <p className="address">Unit 2b, Britannia Pavilion, Royal Albert Docks, Liverpool L3 4AD, United Kingdom</p>
+                </div>
+                <div className="info-item">
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="address" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
 
@@ -444,12 +440,12 @@ export default function AboutUs() {
               <div className="info-group">
                 <h3 className="info-heading">NEAREST LANDMARK</h3>
                 <div className="info-item">
-                  <h4 className="location-name">MANCHESTER</h4>
-                  <p className="landmark">Corn Exchange Manchester</p>
-                </div>
-                <div className="info-item">
                   <h4 className="location-name">LIVERPOOL</h4>
                   <p className="landmark">Royal Albert Dock</p>
+                </div>
+                <div className="info-item">
+                  <h4 className="location-name">MANCHESTER</h4>
+                  <p className="landmark" style={{ color: '#DDAB5A', fontStyle: 'italic' }}>Coming Soon</p>
                 </div>
               </div>
             </div>
@@ -458,14 +454,14 @@ export default function AboutUs() {
             <div className="visit-us-map">
               <div className="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.123456789!2d-2.2436!3d53.4848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1c0a0a0a0a0%3A0x0!2sUnit%2010%20Exchange%20Sq%2C%20Manchester%20M4%203TR%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
+                  src="https://maps.google.com/maps?q=Unit%202b,%20Britannia%20Pavilion,%20Royal%20Albert%20Docks,%20Liverpool%20L3%204AD&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{border: 0}}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Delhi House Café Manchester Location"
+                  title="Delhi House Café Liverpool Location"
                 />
               </div>
             </div>
