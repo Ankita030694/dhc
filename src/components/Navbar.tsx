@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isReservationPopupOpen, setIsReservationPopupOpen] = useState(false);
+  const [isIframeLoading, setIsIframeLoading] = useState(true);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
@@ -55,6 +56,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const openReservationPopup = () => {
+    setIsIframeLoading(true);
     setIsReservationPopupOpen(true);
   };
 
@@ -293,8 +295,14 @@ const Navbar: React.FC = () => {
               </button>
             </div>
             <div className="reservation-widget-container">
+              {isIframeLoading && (
+                <div className="reservation-iframe-loader">
+                  <i className="fas fa-spinner fa-spin"></i>
+                  <p>Loading Liverpool Reservation System...</p>
+                </div>
+              )}
               <iframe 
-                src="https://www.opentable.co.uk/booking/restref/availability?rid=227751&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
+                src="https://www.opentable.co.uk/booking/restref/availability?rid=369630&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
                 width="100%"
                 height="500"
                 frameBorder="0"
@@ -302,8 +310,20 @@ const Navbar: React.FC = () => {
                 allow="payment; camera; microphone; geolocation"
                 referrerPolicy="no-referrer-when-downgrade"
                 id="opentable-reservation-iframe"
-                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+                onLoad={() => setIsIframeLoading(false)}
               />
+            </div>
+            <div className="reservation-popup-footer">
+              <p>
+                Having trouble viewing?{' '}
+                <a 
+                  href="https://www.opentable.co.uk/restref/client/?rid=369630" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Book directly on OpenTable Liverpool <i className="fas fa-external-link-alt" style={{ fontSize: '0.8rem', marginLeft: '2px' }}></i>
+                </a>
+              </p>
             </div>
           </div>
         </div>

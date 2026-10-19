@@ -241,7 +241,7 @@ export default function PrivateDiningPage() {
           </div>
           <div className="private-dining-booking-widget">
             <iframe 
-              src="https://www.opentable.co.uk/booking/restref/availability?rid=227751&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
+              src="https://www.opentable.co.uk/booking/restref/availability?rid=369630&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
               width="100%"
               height="500"
               frameBorder="0"
@@ -249,7 +249,6 @@ export default function PrivateDiningPage() {
               allow="payment; camera; microphone; geolocation"
               referrerPolicy="no-referrer-when-downgrade"
               id="opentable-private-dining-iframe"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
             />
           </div>
           <div className="private-dining-booking-fallback">
@@ -270,7 +269,7 @@ export default function PrivateDiningPage() {
                 preen@delhihousecafe.co.uk
               </a>
               <a 
-                href="https://www.opentable.co.uk/restref/client/?rid=227751"
+                href="https://www.opentable.co.uk/restref/client/?rid=369630"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="private-dining-booking-link"

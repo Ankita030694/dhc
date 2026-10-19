@@ -1205,16 +1205,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .reservation-popup-content {
-  background: rgba(18, 19, 38, 0.85);
+  background: rgba(18, 19, 38, 0.95);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
   border: 1px solid rgba(221, 171, 90, 0.3);
   border-radius: 16px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 94vh;
   width: 650px;
-  overflow: hidden;
+  overflow-y: auto;
   animation: slideIn 0.4s ease-out;
   position: relative;
 }
@@ -1223,15 +1223,18 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem 1.5rem 2rem;
+  padding: 1.25rem 1.75rem 1rem 1.75rem;
   background: #121326;
   color: var(--neutral-white);
   border-bottom: 1px solid rgba(221, 171, 90, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .reservation-popup-header h2 {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
-  font-size: 2rem;
+  font-size: 1.6rem;
   background: #121326;
   font-weight: 200;
   margin: 0;
@@ -1266,8 +1269,62 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .reservation-widget-container {
-  padding: 1.5rem 2rem 2rem 2rem;
+  padding: 1rem 1.5rem 0.5rem 1.5rem;
   background: transparent;
+  position: relative;
+  min-height: 520px;
+}
+
+.reservation-iframe-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #DDAB5A;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.reservation-iframe-loader i {
+  font-size: 2.5rem;
+  color: #DDAB5A;
+}
+
+.reservation-iframe-loader p {
+  font-size: 0.95rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.04em;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
+}
+
+.reservation-popup-footer {
+  padding: 0.75rem 2rem 1.25rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(221, 171, 90, 0.15);
+}
+
+.reservation-popup-footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reservation-popup-footer a {
+  color: #DDAB5A;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-left: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.reservation-popup-footer a:hover {
+  color: #ffffff;
 }
 
 .reservation-widget-container iframe {
@@ -1279,6 +1336,8 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
 }
 
 .opentable-widget {
@@ -1305,6 +1364,8 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--neutral-white);
   border-radius: 12px !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  position: relative;
+  z-index: 2;
 }
 
 /* Animations */
