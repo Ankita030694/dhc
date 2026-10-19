@@ -218,6 +218,71 @@ export default function PrivateDiningPage() {
         </div>
       </motion.section>
 
+      {/* OpenTable Private Dining Booking Section */}
+      <motion.section 
+        className="private-dining-booking-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerContainerVariants}
+      >
+        <motion.div 
+          className="private-dining-booking-wrapper"
+          variants={fadeInUpVariants}
+          transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <div className="private-dining-booking-header">
+            <i className="fas fa-utensils"></i>
+            <h2 className="private-dining-booking-title">BOOK YOUR PRIVATE EVENT</h2>
+            <p className="private-dining-booking-subtitle">
+              Reserve your exclusive dining experience at Delhi House Café Liverpool. 
+              Select your preferred date, time, and party size below.
+            </p>
+          </div>
+          <div className="private-dining-booking-widget">
+            <iframe 
+              src="https://www.opentable.co.uk/booking/restref/availability?rid=227751&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
+              width="100%"
+              height="500"
+              frameBorder="0"
+              title="OpenTable Private Dining Reservation Widget"
+              allow="payment; camera; microphone; geolocation"
+              referrerPolicy="no-referrer-when-downgrade"
+              id="opentable-private-dining-iframe"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+            />
+          </div>
+          <div className="private-dining-booking-fallback">
+            <p>Prefer to book by phone or email?</p>
+            <div className="private-dining-booking-actions">
+              <a 
+                href="tel:+441512036988"
+                className="private-dining-booking-link"
+              >
+                <i className="fas fa-phone"></i>
+                +44 151 203 6988
+              </a>
+              <a 
+                href="mailto:preen@delhihousecafe.co.uk"
+                className="private-dining-booking-link"
+              >
+                <i className="fas fa-envelope"></i>
+                preen@delhihousecafe.co.uk
+              </a>
+              <a 
+                href="https://www.opentable.co.uk/restref/client/?rid=227751"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="private-dining-booking-link"
+              >
+                <i className="fas fa-external-link-alt"></i>
+                Book on OpenTable
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
       <Footer />
 
       {/* Contact Modal */}

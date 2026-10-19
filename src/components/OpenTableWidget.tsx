@@ -42,7 +42,7 @@ export default function OpenTableWidget({ restaurantIds }: OpenTableWidgetProps)
           const widgetType = idsArray.length > 1 ? 'multi' : 'standard';
           
           // Use HTTPS instead of protocol-relative URL
-          script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=227751&rid=369630&type=multi&theme=standard&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website&cfe=true`;
+          script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=227751&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website&cfe=true`;
           
           script.onload = () => {
             console.log('OpenTable widget loaded successfully');

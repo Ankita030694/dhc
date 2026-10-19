@@ -5936,6 +5936,120 @@ main .contact-form-container {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Private Dining Booking Widget Section */
+.private-dining-booking-section {
+  min-height: 50vh;
+  padding: 6rem 2rem;
+  background: transparent;
+  color: var(--neutral-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.private-dining-booking-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+  background: rgba(18, 19, 38, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(221, 171, 90, 0.25);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.private-dining-booking-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.private-dining-booking-header > i {
+  font-size: 2rem;
+  color: #DDAB5A;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.private-dining-booking-title {
+  font-family: "Rye", cursive;
+  font-size: 2rem;
+  color: #DDAB5A;
+  letter-spacing: 0.15em;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.private-dining-booking-subtitle {
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.private-dining-booking-widget {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(221, 171, 90, 0.15);
+  background: var(--neutral-white);
+  margin-bottom: 2rem;
+}
+
+.private-dining-booking-widget iframe {
+  display: block;
+  width: 100%;
+  min-height: 500px;
+  border: none;
+}
+
+.private-dining-booking-fallback {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(221, 171, 90, 0.2);
+}
+
+.private-dining-booking-fallback > p {
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 1rem 0;
+}
+
+.private-dining-booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.private-dining-booking-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(221, 171, 90, 0.4);
+  border-radius: 8px;
+  color: #DDAB5A;
+  text-decoration: none;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: rgba(221, 171, 90, 0.05);
+}
+
+.private-dining-booking-link:hover {
+  background: rgba(221, 171, 90, 0.15);
+  border-color: rgba(221, 171, 90, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(221, 171, 90, 0.15);
+}
+
+.private-dining-booking-link i {
+  font-size: 0.85rem;
+}
+
 /* Private Dining Contact Modal */
 .private-dining-contact-overlay {
   position: fixed;
@@ -6122,6 +6236,28 @@ main .contact-form-container {
   .private-dining-contact-header h2 {
     font-size: 1.5rem;
   }
+
+  .private-dining-booking-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .private-dining-booking-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .private-dining-booking-title {
+    font-size: 1.6rem;
+  }
+
+  .private-dining-booking-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .private-dining-booking-link {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -6167,6 +6303,27 @@ main .contact-form-container {
 
   .private-dining-contact-body {
     padding: 1.5rem;
+  }
+
+  .private-dining-booking-section {
+    padding: 3rem 1rem;
+  }
+
+  .private-dining-booking-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .private-dining-booking-title {
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  .private-dining-booking-subtitle {
+    font-size: 1rem;
+  }
+
+  .private-dining-booking-widget iframe {
+    min-height: 450px;
   }
 }
 
