@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
         {/* Left - EVOO Logo */}
         <div className="footer-logo">
-          <Image src="/trans.png" alt="Footer logo" width={200} height={200} />
+          <Image src="/gold.png" alt="Delhi House Liverpool logo" width={200} height={200} />
         </div>
 
         {/* Center - Join Our Team */}
