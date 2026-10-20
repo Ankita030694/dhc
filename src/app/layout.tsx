@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "../components/LenisProvider";
@@ -11,8 +11,8 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Delhi House Cafe Liverpool - Reservations",
-  description: "Make a reservation at Delhi House Cafe Liverpool. Experience authentic Delhi flavours at the Royal Albert Dock.",
+  title: "Delhi House Liverpool - Reservations",
+  description: "Make a reservation at Delhi House Liverpool. Experience authentic Delhi flavours at the Royal Albert Dock.",
 };
 
 export const viewport: Viewport = {

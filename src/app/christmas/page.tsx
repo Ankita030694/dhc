@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -132,9 +132,9 @@ export default function ChristmasPage() {
             variants={slideInFromLeftVariants}
             transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h2 className="christmas-section-heading">Join Us for Christmas 2025</h2>
+            <h2 className="christmas-section-heading">Join Us for Christmas 2026</h2>
             <p className="christmas-section-text">
-              At Delhi House Café, we take Christmas seriously — and
+              At Delhi House Liverpool, we take Christmas seriously — and
               joyfully! This year, our chefs have crafted two spectacular
               menus, perfect for work parties, family gatherings, or festive
               get-togethers.
@@ -315,7 +315,7 @@ export default function ChristmasPage() {
             className="christmas-main-heading"
             variants={textRevealVariants}
           >
-            <i className="fas fa-tree"></i> Christmas at Delhi House Café 2025 <i className="fas fa-tree"></i>
+            <i className="fas fa-tree"></i> Christmas at Delhi House Liverpool 2026 <i className="fas fa-tree"></i>
           </motion.h2>
           
           <motion.p 
@@ -330,7 +330,7 @@ export default function ChristmasPage() {
             className="christmas-main-text"
             variants={textRevealVariants}
           >
-            Christmas at Delhi House Café is a time of togetherness,
+            Christmas at Delhi House Liverpool is a time of togetherness,
             laughter, and feasting. Our home is decked out in dazzling
             baubles, twinkling lights, and festive touches — setting the
             perfect scene for a truly merry celebration.
@@ -393,9 +393,9 @@ export default function ChristmasPage() {
             <div className="christmas-highlight-icon">
               <i className="fas fa-star"></i>
             </div>
-            <h3 className="christmas-highlight-heading">Join Us for Christmas 2025</h3>
+            <h3 className="christmas-highlight-heading">Join Us for Christmas 2026</h3>
             <p className="christmas-highlight-text">
-              At Delhi House Café, we take Christmas seriously — and joyfully! This year, our chefs have created a spectacular Christmas menu, perfect for work parties, family gatherings, and festive get-togethers.
+              At Delhi House Liverpool, we take Christmas seriously — and joyfully! This year, our chefs have created a spectacular Christmas menu, perfect for work parties, family gatherings, and festive get-togethers.
             </p>
             <div className="christmas-info-item">
               <i className="fas fa-calendar-alt"></i>
@@ -447,7 +447,7 @@ export default function ChristmasPage() {
                 signature dishes, served with festive flair.
               </p>
               <a
-                href="/food.pdf"
+                href="/DHC - Food Menu SS 26 (594 x 420 mm).pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="christmas-feast-link"

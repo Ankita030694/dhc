@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -58,7 +58,7 @@ export default function Login() {
           >
             <i className="fas fa-lock login-icon"></i>
             <h1 className="login-title">Admin Login</h1>
-            <p className="login-subtitle">Delhi House Café</p>
+            <p className="login-subtitle">Delhi House Liverpool</p>
           </motion.div>
 
           <form onSubmit={handleLogin} className="login-form">

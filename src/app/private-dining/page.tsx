@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -7,6 +7,7 @@ import Footer from '../../components/Footer';
 
 export default function PrivateDiningPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
   const openContact = () => {
     setIsContactOpen(true);
@@ -16,9 +17,17 @@ export default function PrivateDiningPage() {
     setIsContactOpen(false);
   };
 
-  // Prevent body scroll when contact is open
+  const openInquiry = () => {
+    setIsInquiryOpen(true);
+  };
+
+  const closeInquiry = () => {
+    setIsInquiryOpen(false);
+  };
+
+  // Prevent body scroll when contact or inquiry is open
   useEffect(() => {
-    if (isContactOpen) {
+    if (isContactOpen || isInquiryOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -27,7 +36,7 @@ export default function PrivateDiningPage() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isContactOpen]);
+  }, [isContactOpen, isInquiryOpen]);
 
   const fadeInUpVariants = {
     hidden: { 
@@ -98,7 +107,7 @@ export default function PrivateDiningPage() {
         <div className="private-dining-hero-image-container">
           <Image
             src="/restaurant.jpg"
-            alt="Private Events at Delhi House Café"
+            alt="Private Events at Delhi House Liverpool"
             fill
             priority
             style={{ objectFit: 'cover' }}
@@ -107,7 +116,7 @@ export default function PrivateDiningPage() {
         <div className="private-dining-hero-overlay"></div>
         <div className="private-dining-hero-content">
           <div className="private-dining-hero-text-wrapper">
-            <h1 className="private-dining-hero-title">PRIVATE EVENTS AT DELHI HOUSE CAFÉ</h1>
+            <h1 className="private-dining-hero-title">PRIVATE EVENTS AT Delhi House Liverpool</h1>
             <h2 className="private-dining-hero-subtitle">CELEBRATE WITH US</h2>
           </div>
         </div>
@@ -129,7 +138,7 @@ export default function PrivateDiningPage() {
           >
             <p className="private-dining-text">
               Whether it's a big family feast, a birthday bash, or a
-              corporate celebration, Delhi House Café is the perfect spot
+              corporate celebration, Delhi House Liverpool is the perfect spot
               for an unforgettable event.
             </p>
             <p className="private-dining-text">
@@ -188,7 +197,7 @@ export default function PrivateDiningPage() {
           >
             <Image
               src="/1.jpg"
-              alt="Delhi House Café ambiance"
+              alt="Delhi House Liverpool ambiance"
               fill
               style={{ objectFit: 'cover' }}
             />
@@ -218,7 +227,7 @@ export default function PrivateDiningPage() {
         </div>
       </motion.section>
 
-      {/* OpenTable Private Dining Booking Section */}
+      {/* OpenTable Private Dining Inquiry Section */}
       <motion.section 
         className="private-dining-booking-section"
         initial="hidden"
@@ -235,21 +244,18 @@ export default function PrivateDiningPage() {
             <i className="fas fa-utensils"></i>
             <h2 className="private-dining-booking-title">BOOK YOUR PRIVATE EVENT</h2>
             <p className="private-dining-booking-subtitle">
-              Reserve your exclusive dining experience at Delhi House Café Liverpool. 
-              Select your preferred date, time, and party size below.
+              Reserve your exclusive dining experience at Delhi House Liverpool. 
+              Submit an inquiry and our events team will get back to you.
             </p>
           </div>
-          <div className="private-dining-booking-widget">
-            <iframe 
-              src="https://www.opentable.co.uk/booking/restref/availability?rid=369630&lang=en-GB&color=1&dark=false&embed=true&iframe=true&otSource=Restaurant%20website"
-              width="100%"
-              height="500"
-              frameBorder="0"
-              title="OpenTable Private Dining Reservation Widget"
-              allow="payment; camera; microphone; geolocation"
-              referrerPolicy="no-referrer-when-downgrade"
-              id="opentable-private-dining-iframe"
-            />
+          <div className="private-dining-inquiry-cta">
+            <button 
+              className="private-dining-inquiry-button"
+              onClick={openInquiry}
+            >
+              <i className="fas fa-concierge-bell"></i>
+              Inquire Now
+            </button>
           </div>
           <div className="private-dining-booking-fallback">
             <p>Prefer to book by phone or email?</p>
@@ -267,15 +273,6 @@ export default function PrivateDiningPage() {
               >
                 <i className="fas fa-envelope"></i>
                 preen@delhihousecafe.co.uk
-              </a>
-              <a 
-                href="https://www.opentable.co.uk/restref/client/?rid=369630"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="private-dining-booking-link"
-              >
-                <i className="fas fa-external-link-alt"></i>
-                Book on OpenTable
               </a>
             </div>
           </div>
@@ -323,6 +320,36 @@ export default function PrivateDiningPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* OpenTable Private Dining Inquiry Popup */}
+      {isInquiryOpen && (
+        <div className="private-dining-inquiry-overlay" onClick={closeInquiry}>
+          <div className="private-dining-inquiry-popup" onClick={(e) => e.stopPropagation()}>
+            <div className="private-dining-inquiry-popup-header">
+              <h2>Contact Us</h2>
+              <button 
+                className="private-dining-contact-close"
+                onClick={closeInquiry}
+                aria-label="Close inquiry form"
+              >
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="private-dining-inquiry-popup-body">
+              <iframe
+                src="https://www.opentable.co.uk/widget/private-dining/mural?rid=369630&type=form&colorThemeId=1&lang=en-GB&headlineButtonTitle=Inquire&title=Contact%20us&loadAllWidgets=false"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="OpenTable Private Dining Inquiry Form"
+                allow="payment; camera; microphone; geolocation"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ border: 'none', display: 'block' }}
+              />
             </div>
           </div>
         </div>

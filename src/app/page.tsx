@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
@@ -253,7 +253,7 @@ export default function Home() {
       <section className="fruit-section">
         <div className="fruit-container">
           <p className="fruit-text">
-          Step into Delhi House Cafe, where flavours flirt, spices tease, and Delhi's soul takes the spotlight.
+          Step into Delhi House Liverpool, where flavours flirt, spices tease, and Delhi's soul takes the spotlight.
           </p>
         </div>
       </section>
@@ -272,7 +272,7 @@ export default function Home() {
               '--scroll-progress': sectionProgress
             } as React.CSSProperties & { '--scroll-progress': number }}
           >
-            <img src="/img1.jpg" alt="Delhi House Cafe ambiance" />
+            <img src="/img1.jpg" alt="Delhi House Liverpool ambiance" />
           </div>
         </div>
       </section>
@@ -300,7 +300,7 @@ export default function Home() {
               variants={textRevealVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              {splitTextIntoWords("Delhi House Cafe is more than just a restaurant; it's a journey through Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.")}
+              {splitTextIntoWords("Delhi House Liverpool is more than just a restaurant; it's a journey through Delhi's vibrant streets, connecting you with the soulful essence of Indian flavours.")}
             </motion.p>
           
           {/* First subsection - Image left, text right */}
@@ -339,7 +339,7 @@ export default function Home() {
                 variants={textRevealVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                {splitTextIntoWords("Delhi House Cafe is where tradition meets modern dining. From the narrow streets of Delhi to Liverpool and Manchester (coming soon), it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.")}
+                {splitTextIntoWords("Delhi House Liverpool is where tradition meets modern dining. From the narrow streets of Delhi to Liverpool and Manchester (coming soon), it offers a soulful culinary journey with a creative twist on classic Indian flavours. The vibrant ambiance, crafted cocktails, and heartfelt hospitality make it a place to savour moments and create memories.")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -420,12 +420,12 @@ export default function Home() {
             {/* Guardian Review Article */}
             <a href="https://www.theguardian.com/food/2020/sep/13/jay-rayner-restaurant-review-delhi-house-cafe-manchester-there-is-a-lot-to-enjoy" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/nm1.png" alt="Delhi House Cafe review" />
+                <img src="/nm1.png" alt="Delhi House Liverpool review" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">Delhi House Cafe Review</h3>
+                <h3 className="news-title">Delhi House Liverpool Review</h3>
                 <p className="news-text">
-                  Jay Rayner reviews Delhi House Cafe, praising the restaurant's authentic Delhi flavors and exceptional service.
+                  Jay Rayner reviews Delhi House Liverpool, praising the restaurant's authentic Delhi flavors and exceptional service.
                 </p>
               </div>
             </a>
@@ -433,10 +433,10 @@ export default function Home() {
             {/* Confidentials Liverpool Article */}
             <a href="https://confidentials.com/liverpool/a-look-inside-delhi-house-cafe" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/nm2.png" alt="Delhi House Cafe Liverpool opening" />
+                <img src="/nm2.png" alt="Delhi House Liverpool opening" />
               </div>
               <div className="news-content">
-                <h3 className="news-title">A Look Inside Delhi House Cafe</h3>
+                <h3 className="news-title">A Look Inside Delhi House Liverpool</h3>
                 <p className="news-text">
                   Family-run Indian restaurant at The Royal Albert Dock in Liverpool, bringing authentic Delhi flavors to the historic waterfront.
                 </p>
@@ -451,7 +451,7 @@ export default function Home() {
               <div className="news-content">
                 <h3 className="news-title">First Look Inside Royal Albert</h3>
                 <p className="news-text">
-                  Get an exclusive first look at Delhi House Cafe's new Liverpool location at the iconic Royal Albert Dock.
+                  Get an exclusive first look at Delhi House Liverpool's new Liverpool location at the iconic Royal Albert Dock.
                 </p>
               </div>
             </a>
@@ -533,7 +533,7 @@ export default function Home() {
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Delhi House Café Liverpool Location"
+                  title="Delhi House Liverpool Location"
                 />
               </div>
             </div>

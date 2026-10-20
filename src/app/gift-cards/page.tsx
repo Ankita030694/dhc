@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -18,16 +18,16 @@ export default function ProductDetail() {
   const products = [
     {
       id: 1,
-      name: '£25 Gift Card - Delhi House Cafe',
+      name: '£25 Gift Card - Delhi House Liverpool',
       image: '/giftcards/1.png',
       thumbnailImage: '/giftcards/2.png',
       price: 25.00,
       originalPrice: 30.00,
       inStock: true,
-      brand: 'Delhi House Cafe',
-      description: 'Perfect for a starter or appetizer treat at Delhi House Cafe. This £25 gift card offers access to our delicious menu of authentic Indian cuisine crafted with the finest ingredients.',
+      brand: 'Delhi House Liverpool',
+      description: 'Perfect for a starter or appetizer treat at Delhi House Liverpool. This £25 gift card offers access to our delicious menu of authentic Indian cuisine crafted with the finest ingredients.',
       features: [
-        'Valid at all Delhi House Cafe locations',
+        'Valid at all Delhi House Liverpool locations',
         'Expiration date 1 year from purchase',
         'Cannot be combined with other offers',
         'Perfect for appetizers and starters',
@@ -37,16 +37,16 @@ export default function ProductDetail() {
     },
     {
       id: 2,
-      name: '£50 Gift Card - Delhi House Cafe',
+      name: '£50 Gift Card - Delhi House Liverpool',
       image: '/giftcards/3.png',
       thumbnailImage: '/giftcards/4.png',
       price: 50.00,
       originalPrice: 60.00,
       inStock: true,
-      brand: 'Delhi House Cafe',
-      description: 'Treat yourself or someone special to an unforgettable dining experience at Delhi House Cafe. Our £50 gift card offers access to authentic Indian cuisine crafted with the finest ingredients and traditional recipes.',
+      brand: 'Delhi House Liverpool',
+      description: 'Treat yourself or someone special to an unforgettable dining experience at Delhi House Liverpool. Our £50 gift card offers access to authentic Indian cuisine crafted with the finest ingredients and traditional recipes.',
       features: [
-        'Valid at all Delhi House Cafe locations',
+        'Valid at all Delhi House Liverpool locations',
         'Expiration date 1 year from purchase',
         'Cannot be combined with other offers',
         'Perfect for a complete meal for two',
@@ -56,16 +56,16 @@ export default function ProductDetail() {
     },
     {
       id: 3,
-      name: '£100 Gift Card - Delhi House Cafe',
+      name: '£100 Gift Card - Delhi House Liverpool',
       image: '/giftcards/5.png',
       thumbnailImage: '/giftcards/6.png',
       price: 100.00,
       originalPrice: 120.00,
       inStock: true,
-      brand: 'Delhi House Cafe',
+      brand: 'Delhi House Liverpool',
       description: 'Experience luxury dining with our premium £100 gift card. Perfect for special occasions, celebrations, or treating a group to the finest Indian cuisine. Includes access to our full menu and premium dishes.',
       features: [
-        'Valid at all Delhi House Cafe locations',
+        'Valid at all Delhi House Liverpool locations',
         'Expiration date 1 year from purchase',
         'Cannot be combined with other offers',
         'Perfect for group dining or celebrations',
@@ -75,16 +75,16 @@ export default function ProductDetail() {
     },
     {
       id: 4,
-      name: '£150 Gift Card - Delhi House Cafe',
+      name: '£150 Gift Card - Delhi House Liverpool',
       image: '/giftcards/7.png',
       thumbnailImage: '/giftcards/8.png',
       price: 150.00,
       originalPrice: 180.00,
       inStock: true,
-      brand: 'Delhi House Cafe',
+      brand: 'Delhi House Liverpool',
       description: 'The ultimate gift of exceptional dining. Our £150 gift card provides an extraordinary culinary journey through authentic Indian flavors. Ideal for corporate gifts, anniversaries, or unforgettable family celebrations.',
       features: [
-        'Valid at all Delhi House Cafe locations',
+        'Valid at all Delhi House Liverpool locations',
         'Expiration date 1 year from purchase',
         'Cannot be combined with other offers',
         'Exclusive VIP treatment available',

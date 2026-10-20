@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { db } from '../../../lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
             currency: 'gbp',
             product_data: {
               name: productName,
-              description: `Gift Card for Delhi House Café - £${priceNum}`,
+              description: `Gift Card for Delhi House Liverpool - £${priceNum}`,
             },
             unit_amount: Math.round(priceNum * 100), // Convert to pence
           },

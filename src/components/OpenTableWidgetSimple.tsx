@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect } from 'react';
 
@@ -47,7 +47,7 @@ export default function OpenTableWidgetSimple({ restaurantId }: OpenTableWidgetS
             <p>If the reservation widget doesn't appear, you can:</p>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0.5rem 0' }}>
               <li>• Visit OpenTable.co.uk directly</li>
-              <li>• Search for "Delhi House Cafe Liverpool"</li>
+              <li>• Search for "Delhi House Liverpool"</li>
               <li>• Call the restaurant directly</li>
             </ul>
           </div>

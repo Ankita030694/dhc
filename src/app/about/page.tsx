@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -461,7 +461,7 @@ export default function AboutUs() {
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Delhi House Café Liverpool Location"
+                  title="Delhi House Liverpool Location"
                 />
               </div>
             </div>

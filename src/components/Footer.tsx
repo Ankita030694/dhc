@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -26,7 +26,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-link" 
-                aria-label="Instagram Delhi House Cafe"
+                aria-label="Instagram Delhi House Liverpool"
               >
                 <i className="fab fa-instagram"></i>
               </a>
@@ -37,7 +37,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-link" 
-                aria-label="Facebook Delhi House Cafe"
+                aria-label="Facebook Delhi House Liverpool"
               >
                 <i className="fab fa-facebook"></i>
               </a>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -83,7 +83,7 @@ export default function ContactUs() {
         <div className="contact-hero-image-container">
           <Image 
             src="/food.jpg" 
-            alt="Delhi House Café - Contact Us" 
+            alt="Delhi House Liverpool - Contact Us" 
             fill
             priority
             style={{ objectFit: 'cover' }}
@@ -360,7 +360,7 @@ export default function ContactUs() {
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Delhi House Café Liverpool Location"
+                  title="Delhi House Liverpool Location"
                 />
               </div>
             </motion.div>

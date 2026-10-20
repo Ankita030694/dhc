@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -73,7 +73,7 @@ function PaymentSuccessContent() {
             console.error('Failed to fetch session details:', data.error);
             setPaymentDetails({
               amount: 0,
-              productName: 'Gift Card - Delhi House Cafe',
+              productName: 'Gift Card - Delhi House Liverpool',
               email: 'customer@example.com',
             });
           }
@@ -81,7 +81,7 @@ function PaymentSuccessContent() {
           console.error('Error fetching payment details:', error);
           setPaymentDetails({
             amount: 0,
-            productName: 'Gift Card - Delhi House Cafe',
+            productName: 'Gift Card - Delhi House Liverpool',
             email: 'customer@example.com',
           });
         } finally {
@@ -92,11 +92,11 @@ function PaymentSuccessContent() {
         setTimeout(() => {
           const testTransactionId = 'cs_test_a1B2c3D4e5F6g7H8i9J0k1L2m3N4o5P6q7R8s9T0u1V2w3X4y5Z6a7B8c9D0e1F2g3H4';
           const amount = testAmount ? parseFloat(testAmount) : 25.00;
-          const productName = amount === 25 ? '£25 Gift Card - Delhi House Cafe' :
-                              amount === 50 ? '£50 Gift Card - Delhi House Cafe' :
-                              amount === 100 ? '£100 Gift Card - Delhi House Cafe' :
-                              amount === 150 ? '£150 Gift Card - Delhi House Cafe' :
-                              `£${amount} Gift Card - Delhi House Cafe`;
+          const productName = amount === 25 ? '£25 Gift Card - Delhi House Liverpool' :
+                              amount === 50 ? '£50 Gift Card - Delhi House Liverpool' :
+                              amount === 100 ? '£100 Gift Card - Delhi House Liverpool' :
+                              amount === 150 ? '£150 Gift Card - Delhi House Liverpool' :
+                              `£${amount} Gift Card - Delhi House Liverpool`;
           const details = {
             amount: amount,
             productName: productName,

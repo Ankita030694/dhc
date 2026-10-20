@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
@@ -141,13 +141,13 @@ export async function POST(request: Request) {
 
     // 1. Email to Sender (Confirmation)
     const senderMailOptions = {
-      from: '"Delhi House Cafe" <gift.card@delhihousecafe.co.uk>',
+      from: '"Delhi House Liverpool" <gift.card@delhihousecafe.co.uk>',
       to: senderEmail,
       subject: `Purchase Confirmation: ${productName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="color: #d4af37;">Delhi House Cafe</h1>
+            <h1 style="color: #d4af37;">Delhi House Liverpool</h1>
           </div>
           
           <h2 style="color: #333;">Purchase Successful!</h2>
@@ -168,7 +168,7 @@ export async function POST(request: Request) {
           <p>If you have any questions, please contact us.</p>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #888; text-align: center;">
-            <p>&copy; ${new Date().getFullYear()} Delhi House Cafe. All rights reserved.</p>
+            <p>&copy; ${new Date().getFullYear()} Delhi House Liverpool. All rights reserved.</p>
           </div>
         </div>
       `,
@@ -183,13 +183,13 @@ export async function POST(request: Request) {
 
     // 2. Email to Recipient (Gift Card + PDF)
     const recipientMailOptions = {
-      from: '"Delhi House Cafe" <gift.card@delhihousecafe.co.uk>',
+      from: '"Delhi House Liverpool" <gift.card@delhihousecafe.co.uk>',
       to: recipientEmail,
       subject: `You've received a Gift Card!`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="color: #d4af37;">Delhi House Cafe</h1>
+            <h1 style="color: #d4af37;">Delhi House Liverpool</h1>
           </div>
           
           <h2 style="color: #333;">You've received a Gift Card!</h2>
@@ -206,7 +206,7 @@ export async function POST(request: Request) {
           <p>Please find your official gift card attached as a PDF.</p>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #888; text-align: center;">
-            <p>&copy; ${new Date().getFullYear()} Delhi House Cafe. All rights reserved.</p>
+            <p>&copy; ${new Date().getFullYear()} Delhi House Liverpool. All rights reserved.</p>
           </div>
         </div>
       `,
@@ -221,13 +221,13 @@ export async function POST(request: Request) {
 
     // 3. Email to Owner (Notification)
     const ownerMailOptions = {
-      from: '"Delhi House Cafe" <gift.card@delhihousecafe.co.uk>',
+      from: '"Delhi House Liverpool" <gift.card@delhihousecafe.co.uk>',
       to: 'delhihousecafe@gmail.com, bhavyajain817@gmail.com',
       subject: `New Gift Card Purchase: ${productName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="color: #d4af37;">Delhi House Cafe</h1>
+            <h1 style="color: #d4af37;">Delhi House Liverpool</h1>
           </div>
           
           <h2 style="color: #333;">New Gift Card Sold!</h2>

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 export async function GET(request: NextRequest) {
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
     const currency = session.currency?.toUpperCase() || 'GBP';
     
     // Get product name from metadata (primary source) or line items
-    let productName = session.metadata?.productName || 'Gift Card - Delhi House Café';
+    let productName = session.metadata?.productName || 'Gift Card - Delhi House Liverpool';
     let price = session.metadata?.price ? parseFloat(session.metadata.price) : amountTotal;
 
     // If we have line items, try to get additional info

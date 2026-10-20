@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
           <div className="navbar-mobile-logo">
             <Image 
               src="/trans.png" 
-              alt="Delhi House Cafe" 
+              alt="Delhi House Liverpool" 
               width={80} 
               height={16}
               className="navbar-logo"
@@ -257,12 +257,12 @@ const Navbar: React.FC = () => {
             )}
           </div>
           
-          {/* Center - Delhi House Cafe Logo */}
+          {/* Center - Delhi House Liverpool Logo */}
           <Link href="/"> 
           <div className="navbar-center -mt-12">
             <Image 
               src="/trans.png" 
-              alt="Delhi House Cafe" 
+              alt="Delhi House Liverpool" 
               width={95} 
               height={50}
               className="navbar-logo"

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 interface OpenTableIframeProps {
   restaurantId: string;
@@ -39,7 +39,7 @@ export default function OpenTableIframe({ restaurantId }: OpenTableIframeProps) 
           
           <div style={{ padding: '1rem', textAlign: 'center' as const }}>
             <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: 'var(--neutral-gray-600)' }}>
-              Loading reservation system for Delhi House Cafe Liverpool...
+              Loading reservation system for Delhi House Liverpool...
             </p>
             
             {/* Attempt 1: Direct script injection */}
@@ -126,7 +126,7 @@ export default function OpenTableIframe({ restaurantId }: OpenTableIframeProps) 
             }}
           >
             <i className="fas fa-utensils fa-icon"></i>
-            Book at Delhi House Cafe
+            Book at Delhi House Liverpool
           </a>
         </div>
       </div>

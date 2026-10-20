@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Generate a unique redeemable gift card code from transaction ID
  * Format: DHC-{amount}-{unique identifier from transaction ID}
  * 
  * Example: DHC-25-A1B2C3D4E5F6
- * - DHC = Delhi House Café prefix
+ * - DHC = Delhi House Liverpool prefix
  * - 25 = Gift card amount
  * - A1B2C3D4E5F6 = Extracted unique identifier from transaction ID
  */
