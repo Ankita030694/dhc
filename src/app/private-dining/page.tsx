@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -24,6 +24,15 @@ export default function PrivateDiningPage() {
   const closeInquiry = () => {
     setIsInquiryOpen(false);
   };
+
+  // Auto-open the OpenTable private dining inquiry modal 2 seconds after landing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInquiryOpen(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Prevent body scroll when contact or inquiry is open
   useEffect(() => {
