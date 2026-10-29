@@ -12,19 +12,12 @@ export default function ChristmasPopup() {
   useEffect(() => {
     // Do not show popup if already on the Christmas page
     if (pathname === '/christmas') {
+      setIsOpen(false);
       return;
     }
 
-    // Check if user has already dismissed or interacted with the popup in this session
-    const hasSeenPopup = sessionStorage.getItem('dhc_christmas_popup_seen');
-    if (!hasSeenPopup) {
-      // Small delay for smooth entry after website loads
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 700);
-
-      return () => clearTimeout(timer);
-    }
+    // Open popup as soon as the website is opened
+    setIsOpen(true);
   }, [pathname]);
 
   // Lock body scroll when popup is open
@@ -34,7 +27,7 @@ export default function ChristmasPopup() {
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
-          handleClose();
+          setIsOpen(false);
         }
       };
 
@@ -50,12 +43,6 @@ export default function ChristmasPopup() {
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem('dhc_christmas_popup_seen', 'true');
-  };
-
-  const handleGoToChristmas = () => {
-    sessionStorage.setItem('dhc_christmas_popup_seen', 'true');
-    setIsOpen(false);
   };
 
   if (!isOpen || pathname === '/christmas') {
@@ -69,16 +56,48 @@ export default function ChristmasPopup() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="christmas-popup-title"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 999999,
+        background: 'rgba(8, 9, 18, 0.88)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1rem',
+      }}
     >
       <div 
         className="christmas-popup-card" 
         onClick={(e) => e.stopPropagation()}
+        style={{
+          position: 'relative',
+          width: '100%',
+          maxWidth: '560px',
+          maxHeight: '92vh',
+          background: 'linear-gradient(160deg, #17182f 0%, #0d0e1c 100%)',
+          border: '1.5px solid rgba(221, 171, 90, 0.55)',
+          borderRadius: '20px',
+          overflow: 'hidden',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(221, 171, 90, 0.25)',
+          display: 'flex',
+          flexDirection: 'column',
+          zIndex: 1000000,
+        }}
       >
         {/* Close Button */}
         <button 
           className="christmas-popup-close-btn" 
           onClick={handleClose}
           aria-label="Close Christmas announcement"
+          type="button"
         >
           <i className="fas fa-times"></i>
         </button>
@@ -86,11 +105,11 @@ export default function ChristmasPopup() {
         {/* Image Header with Festive Badge */}
         <div className="christmas-popup-image-container">
           <Image
-            src="/chrsitmas/christ1.jpg"
+            src="/chrsitmas/christ2.jpg"
             alt="Christmas Feasting at Delhi House Liverpool"
             fill
             priority
-            sizes="(max-width: 640px) 100vw, 620px"
+            sizes="(max-width: 640px) 100vw, 560px"
             style={{ objectFit: 'cover' }}
           />
           <div className="christmas-popup-image-gradient"></div>
@@ -136,7 +155,7 @@ export default function ChristmasPopup() {
           <div className="christmas-popup-actions">
             <Link 
               href="/christmas" 
-              onClick={handleGoToChristmas}
+              onClick={handleClose}
               className="christmas-popup-primary-btn"
             >
               <span>Explore Christmas Celebrations</span>
@@ -156,4 +175,3 @@ export default function ChristmasPopup() {
     </div>
   );
 }
-
