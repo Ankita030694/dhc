@@ -1,7 +1,17 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
+const OPENTABLE_NEWSLETTER_URL = 'https://www.opentable.co.uk/widget/comms/mural?rid=369630&lang=en-GB';
+
 export default function Footer() {
+  const handleOpenNewsletter = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-dhc-newsletter'));
+    }
+  };
+
   return (
     <footer className="footer-section">
       <div className="footer-container">
@@ -14,6 +24,33 @@ export default function Footer() {
         <div className="footer-center">
           <h3 className="footer-heading">JOIN OUR TEAM</h3>
           <p className="footer-email">E: info@delhihousecafe.co.uk</p>
+        </div>
+
+        {/* Newsletter Subscription */}
+        <div className="footer-newsletter">
+          <h3 className="footer-heading">NEWSLETTER</h3>
+          <p className="footer-newsletter-text">
+            Subscribe for festive feasting, seasonal specials & exclusive invitations.
+          </p>
+          <div className="footer-newsletter-actions">
+            <button 
+              type="button"
+              onClick={handleOpenNewsletter}
+              className="footer-newsletter-btn"
+            >
+              <i className="fas fa-envelope"></i>
+              <span>Subscribe</span>
+            </button>
+            <a 
+              href={OPENTABLE_NEWSLETTER_URL} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-newsletter-direct-link"
+              title="Open subscription in new tab"
+            >
+              <i className="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
 
         {/* Right - Follow Our Journey */}
@@ -56,5 +93,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-

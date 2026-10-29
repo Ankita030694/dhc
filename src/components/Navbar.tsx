@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Script from 'next/script';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,7 +21,6 @@ const Navbar: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isReservationPopupOpen, setIsReservationPopupOpen] = useState(false);
   const [isIframeLoading, setIsIframeLoading] = useState(true);
-  const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
 
@@ -62,6 +60,14 @@ const Navbar: React.FC = () => {
 
   const closeReservationPopup = () => {
     setIsReservationPopupOpen(false);
+  };
+
+  const openNewsletter = () => {
+    setIsMobileMenuOpen(false);
+    setIsDesktopMenuOpen(false);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-dhc-newsletter'));
+    }
   };
 
   // Prevent body scroll when popup is open and handle iframe navigation
@@ -155,12 +161,12 @@ const Navbar: React.FC = () => {
               </button>
               <div className="mobile-nav-links">
                 <a href="/about">  
-                <button className="nav-btn mobile">ABOUT US</button>
+                  <button className="nav-btn mobile">ABOUT US</button>
                 </a>
                 <a href="/gift-cards">
                   <button className="nav-btn mobile">GIFT CARDS</button>
                 </a>
-                  <div className="mobile-menu-section">
+                <div className="mobile-menu-section">
                   <span className="mobile-menu-label">MENU</span>
                   <a 
                     href="/DHC%20-%20Food%20Menu%20SS%2026%20(594%20x%20420%20mm).pdf" 
@@ -182,14 +188,18 @@ const Navbar: React.FC = () => {
                   </a>
                 </div>
                 <a href="/christmas">  
-                <button className="nav-btn mobile">CHRISTMAS</button>
+                  <button className="nav-btn mobile">CHRISTMAS</button>
                 </a>
                 <a href="/private-dining">  
-                <button className="nav-btn mobile">PRIVATE DINING</button>
+                  <button className="nav-btn mobile">PRIVATE DINING</button>
                 </a>
                 <a href="/contact">  
-                <button className="nav-btn mobile">CONTACT</button>
+                  <button className="nav-btn mobile">CONTACT</button>
                 </a>
+                <button className="nav-btn mobile" onClick={openNewsletter}>
+                  <i className="fas fa-envelope mr-2 text-amber-400"></i>
+                  NEWSLETTER
+                </button>
               </div>
             </div>
           )}
@@ -252,6 +262,10 @@ const Navbar: React.FC = () => {
                   <a href="/contact" onClick={() => setIsDesktopMenuOpen(false)}>  
                     <button className="nav-btn desktop-menu-btn">CONTACT</button>
                   </a>
+                  <button className="nav-btn desktop-menu-btn" onClick={openNewsletter}>
+                    <i className="fas fa-envelope mr-2 text-amber-400"></i>
+                    NEWSLETTER
+                  </button>
                 </div>
               </div>
             )}
@@ -259,16 +273,16 @@ const Navbar: React.FC = () => {
           
           {/* Center - Delhi House Liverpool Logo */}
           <Link href="/"> 
-          <div className="navbar-center -mt-12">
-            <Image 
-              src="/white.png" 
-              alt="Delhi House Liverpool" 
-              width={95} 
-              height={50}
-              className="navbar-logo"
-              priority
-            />
-          </div>
+            <div className="navbar-center -mt-12">
+              <Image 
+                src="/white.png" 
+                alt="Delhi House Liverpool" 
+                width={95} 
+                height={50}
+                className="navbar-logo"
+                priority
+              />
+            </div>
           </Link>
           
           {/* Right - Make a Reservation */}
