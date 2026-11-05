@@ -4393,7 +4393,10 @@ main .contact-form-container {
   }
 }
 
-/* Christmas Page Styles */
+/* Christmas Page Styles - Bespoke Royal Indian Christmas Theme
+   Palette: #231f20 (Charcoal), #052b5d (Royal Navy), #081931 (Midnight Navy),
+            #cead7a (Champagne Gold), #f1e3c9 (Cream Ivory), #a58153 (Antique Bronze), #000102 (Obsidian)
+*/
 .christmas-hero-section {
   position: relative;
   width: 100vw;
@@ -4402,6 +4405,7 @@ main .contact-form-container {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  background: #000102;
 }
 
 .christmas-hero-image-container {
@@ -4419,7 +4423,13 @@ main .contact-form-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(18, 19, 38, 0.7) 100%);
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 1, 2, 0.4) 0%, 
+    rgba(8, 25, 49, 0.6) 45%, 
+    rgba(8, 25, 49, 0.92) 85%, 
+    #081931 100%
+  );
   z-index: 1;
 }
 
@@ -4428,7 +4438,7 @@ main .contact-form-container {
   bottom: 0;
   left: 0;
   z-index: 2;
-  padding: 4rem 2rem;
+  padding: 4.5rem 2.5rem;
   width: 100%;
   display: flex;
   align-items: flex-end;
@@ -4438,7 +4448,7 @@ main .contact-form-container {
 .christmas-hero-text-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   text-align: left;
   width: 100%;
   align-items: flex-start;
@@ -4446,17 +4456,18 @@ main .contact-form-container {
 
 .christmas-hero-subtitle {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: var(--neutral-white);
-  letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #cead7a;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   margin: 0;
   width: 100%;
-  opacity: 0.95;
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+  opacity: 0.98;
+  text-shadow: 0 2px 10px rgba(0, 1, 2, 0.85);
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .christmas-subtitle-text {
@@ -4469,17 +4480,19 @@ main .contact-form-container {
   min-width: 0;
   white-space: nowrap;
   text-align: left;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   overflow: hidden;
+  color: #a58153;
+  opacity: 0.75;
 }
 
 .christmas-hero-title {
   font-family: "Rye", cursive;
-  font-size: 4.5rem;
-  font-weight: 200;
-  color: var(--neutral-white);
-  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
-  letter-spacing: 0.15em;
+  font-size: 4.75rem;
+  font-weight: 300;
+  color: #cead7a;
+  text-shadow: 0 4px 24px rgba(0, 1, 2, 0.95), 0 0 40px rgba(206, 173, 122, 0.35);
+  letter-spacing: 0.12em;
   margin: 0;
   text-transform: uppercase;
   text-align: left;
@@ -4490,12 +4503,15 @@ main .contact-form-container {
 /* Christmas Content Section */
 .christmas-content-section {
   min-height: 80vh;
-  padding: 6rem 2rem;
-  background: #ad473b;
-  color: var(--neutral-white);
+  padding: 6.5rem 2rem;
+  background: radial-gradient(circle at 85% 30%, #052b5d 0%, #081931 55%, #000102 100%);
+  color: #f1e3c9;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  border-top: 1px solid rgba(206, 173, 122, 0.25);
+  border-bottom: 1px solid rgba(206, 173, 122, 0.15);
 }
 
 .christmas-content-wrapper {
@@ -4511,29 +4527,30 @@ main .contact-form-container {
 .christmas-text-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.75rem;
   padding: 2rem;
 }
 
 .christmas-section-heading {
   font-family: "Rye", cursive;
   font-weight: 300;
-  font-size: 2.5rem;
-  color: var(--neutral-white);
-  letter-spacing: 0.05em;
+  font-size: 2.75rem;
+  color: #cead7a;
+  letter-spacing: 0.06em;
   margin: 0;
   text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 1, 2, 0.7);
 }
 
 .christmas-section-text {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.3rem;
-  line-height: 1.8;
-  color: var(--neutral-white);
+  line-height: 1.85;
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.92;
 }
 
 .christmas-info-item {
@@ -4541,47 +4558,53 @@ main .contact-form-container {
   align-items: center;
   gap: 1rem;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
-  font-size: 1.1rem;
-  color: var(--neutral-white);
+  font-size: 1.15rem;
+  color: #f1e3c9;
   margin-top: 0.5rem;
 }
 
 .christmas-info-item i {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
+  color: #cead7a;
+  text-shadow: 0 0 10px rgba(206, 173, 122, 0.4);
 }
 
 .christmas-book-button {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: var(--neutral-white);
-  padding: 1rem 2rem;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #cead7a 0%, #a58153 100%);
+  border: 1px solid rgba(241, 227, 201, 0.45);
+  color: #081931;
+  padding: 1.1rem 2.25rem;
+  border-radius: 9999px;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  font-weight: 400;
+  transition: all 0.35s ease;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-top: 2rem;
   width: fit-content;
+  box-shadow: 0 8px 25px rgba(206, 173, 122, 0.32);
 }
 
 .christmas-book-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: var(--neutral-white);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #f1e3c9 0%, #cead7a 100%);
+  color: #000102;
+  border-color: #cead7a;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(206, 173, 122, 0.48);
 }
 
 .christmas-book-button i {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  transition: transform 0.3s ease;
+}
+
+.christmas-book-button:hover i {
+  transform: scale(1.15);
 }
 
 .christmas-image-content {
@@ -4595,20 +4618,22 @@ main .contact-form-container {
   width: 100%;
   max-width: 500px;
   height: 500px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(206, 173, 122, 0.35);
+  box-shadow: 0 18px 45px rgba(0, 1, 2, 0.75), 0 0 25px rgba(5, 43, 93, 0.3);
 }
 
 /* Christmas Feasting Section */
 .christmas-feasting-section {
   min-height: 80vh;
-  padding: 6rem 2rem;
-  background: #ad473b;
-  color: var(--neutral-white);
+  padding: 6.5rem 2rem;
+  background: linear-gradient(180deg, #081931 0%, #231f20 45%, #231f20 100%);
+  color: #f1e3c9;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .christmas-feasting-wrapper {
@@ -4635,23 +4660,28 @@ main .contact-form-container {
   width: 100%;
   height: 600px;
   overflow: hidden;
+  border-radius: 16px;
+  border: 1.5px solid rgba(165, 129, 83, 0.4);
+  box-shadow: 0 15px 45px rgba(0, 1, 2, 0.7);
 }
 
 .christmas-feasting-text-box {
-  background: #ad473b;
-  border: 2px double var(--neutral-white);
-  border-width: 4px;
+  background: rgba(8, 25, 49, 0.94);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 2px solid #a58153;
+  box-shadow: 0 20px 50px rgba(0, 1, 2, 0.8), inset 0 0 0 1px rgba(206, 173, 122, 0.3);
+  border-radius: 14px;
   padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   justify-content: center;
-  height: 300px;
+  height: 320px;
   width: calc(100% + 80px);
   margin-left: -80px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -4659,12 +4689,12 @@ main .contact-form-container {
   font-family: "Rye", cursive;
   font-weight: 300;
   font-size: 2.2rem;
-  color: var(--neutral-white);
+  color: #cead7a;
   letter-spacing: 0.1em;
   margin: 0;
   text-transform: uppercase;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.25;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -4672,12 +4702,12 @@ main .contact-form-container {
 .christmas-feasting-text {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--neutral-white);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.92;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -4685,39 +4715,42 @@ main .contact-form-container {
 }
 
 .christmas-feasting-button {
-  background: transparent;
-  border: 1px solid var(--neutral-white);
-  color: var(--neutral-white);
-  padding: 0.85rem 2rem;
-  border-radius: 0;
+  background: rgba(5, 43, 93, 0.45);
+  border: 1.5px solid #cead7a;
+  color: #f1e3c9;
+  padding: 0.9rem 2.25rem;
+  border-radius: 8px;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 400;
+  transition: all 0.35s ease;
+  font-weight: 600;
   width: fit-content;
   margin-top: 0.5rem;
   flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 1, 2, 0.4);
 }
 
 .christmas-feasting-button:hover {
-  background: var(--neutral-white);
-  color: #ad473b;
+  background: #cead7a;
+  color: #081931;
+  border-color: #cead7a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(206, 173, 122, 0.4);
 }
 
 /* Tasty Tidings Section */
 .christmas-tidings-section {
   min-height: 80vh;
-  padding: 6rem 2rem;
-  background: #ad473b;
-  color: var(--neutral-white);
+  padding: 6.5rem 2rem;
+  background: linear-gradient(145deg, #081931 0%, #052b5d 100%);
+  color: #f1e3c9;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid rgba(206, 173, 122, 0.2);
 }
 
 .christmas-tidings-wrapper {
@@ -4742,7 +4775,7 @@ main .contact-form-container {
   font-family: "Rye", cursive;
   font-weight: 300;
   font-size: 2.2rem;
-  color: var(--neutral-white);
+  color: #cead7a;
   letter-spacing: 0.05em;
   margin: 0;
   text-transform: uppercase;
@@ -4752,7 +4785,7 @@ main .contact-form-container {
   font-family: "Rye", cursive;
   font-weight: 300;
   font-size: 1.6rem;
-  color: var(--neutral-white);
+  color: #f1e3c9;
   letter-spacing: 0.05em;
   margin: 0;
   text-transform: uppercase;
@@ -4762,41 +4795,40 @@ main .contact-form-container {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.15rem;
-  line-height: 1.7;
-  color: var(--neutral-white);
+  line-height: 1.75;
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.92;
   text-align: left;
 }
 
 .christmas-tidings-button {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: var(--neutral-white);
+  background: linear-gradient(135deg, #cead7a 0%, #a58153 100%);
+  border: 1px solid rgba(241, 227, 201, 0.4);
+  color: #081931;
   padding: 1rem 2rem;
-  border-radius: 12px;
+  border-radius: 9999px;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  font-weight: 400;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-top: 1rem;
   width: fit-content;
+  box-shadow: 0 8px 24px rgba(206, 173, 122, 0.3);
 }
 
 .christmas-tidings-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: var(--neutral-white);
+  background: linear-gradient(135deg, #f1e3c9 0%, #cead7a 100%);
+  color: #000102;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 30px rgba(206, 173, 122, 0.45);
 }
 
 .christmas-tidings-image-content {
@@ -4812,20 +4844,23 @@ main .contact-form-container {
   max-width: 500px;
   height: 100%;
   min-height: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(206, 173, 122, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 1, 2, 0.6);
 }
 
 /* Christmas Gift Guide Section */
 .christmas-guide-section {
   min-height: 80vh;
-  padding: 6rem 2rem;
-  background: #ad473b;
-  color: var(--neutral-white);
+  padding: 6.5rem 2rem;
+  background: linear-gradient(145deg, #052b5d 0%, #081931 55%, #231f20 100%);
+  color: #f1e3c9;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  border-top: 1px solid rgba(206, 173, 122, 0.2);
 }
 
 .christmas-guide-wrapper {
@@ -4852,14 +4887,15 @@ main .contact-form-container {
   height: 100%;
   min-height: 500px;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 1.5px solid rgba(206, 173, 122, 0.35);
+  box-shadow: 0 15px 45px rgba(0, 1, 2, 0.7);
 }
 
 .christmas-guide-text-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   padding: 2rem;
   justify-content: center;
   position: relative;
@@ -4868,10 +4904,10 @@ main .contact-form-container {
 }
 
 .christmas-guide-line {
-  width: 50%;
+  width: 60%;
   height: 1px;
-  background: var(--neutral-white);
-  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, #cead7a, transparent);
+  opacity: 0.65;
   margin: 0 auto;
 }
 
@@ -4886,9 +4922,9 @@ main .contact-form-container {
 .christmas-guide-heading {
   font-family: "Rye", cursive;
   font-weight: 300;
-  font-size: 2.5rem;
-  color: var(--neutral-white);
-  letter-spacing: 0.05em;
+  font-size: 2.6rem;
+  color: #cead7a;
+  letter-spacing: 0.08em;
   margin: 0;
   text-transform: uppercase;
   text-align: center;
@@ -4897,8 +4933,8 @@ main .contact-form-container {
 .christmas-guide-subheading {
   font-family: "Rye", cursive;
   font-weight: 300;
-  font-size: 1.8rem;
-  color: var(--neutral-white);
+  font-size: 1.85rem;
+  color: #f1e3c9;
   letter-spacing: 0.05em;
   margin: 0;
   text-transform: uppercase;
@@ -4909,47 +4945,51 @@ main .contact-form-container {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.3rem;
-  line-height: 1.8;
-  color: var(--neutral-white);
+  line-height: 1.85;
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.92;
   text-align: center;
+  max-width: 540px;
 }
 
 .christmas-guide-button {
-  background: transparent;
-  border: 1px solid var(--neutral-white);
-  color: var(--neutral-white);
-  padding: 1rem 2.5rem;
-  border-radius: 0;
+  background: rgba(5, 43, 93, 0.5);
+  border: 1.5px solid #cead7a;
+  color: #f1e3c9;
+  padding: 1rem 2.75rem;
+  border-radius: 8px;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 400;
+  transition: all 0.35s ease;
+  font-weight: 600;
   width: fit-content;
   margin: 1rem auto 0 auto;
+  box-shadow: 0 4px 18px rgba(0, 1, 2, 0.4);
 }
 
 .christmas-guide-button:hover {
-  background: var(--neutral-white);
-  color: #ad473b;
+  background: #cead7a;
+  color: #081931;
+  border-color: #cead7a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(206, 173, 122, 0.45);
 }
 
 /* Christmas Main Section */
 .christmas-main-section {
   min-height: 100vh;
-  padding: 6rem 2rem;
-  background: #ad473b;
-  color: var(--neutral-white);
+  padding: 6.5rem 2rem;
+  background: linear-gradient(180deg, #231f20 0%, #081931 35%, #000102 100%);
+  color: #f1e3c9;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .christmas-main-container {
@@ -4964,29 +5004,31 @@ main .contact-form-container {
 .christmas-main-heading {
   font-family: "Rye", cursive;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 3.25rem;
   text-align: center;
-  color: var(--neutral-white);
+  color: #cead7a;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
+  text-shadow: 0 2px 18px rgba(0, 1, 2, 0.8), 0 0 30px rgba(206, 173, 122, 0.25);
 }
 
 .christmas-main-heading i {
-  font-size: 2rem;
-  opacity: 0.8;
+  font-size: 2.2rem;
+  color: #a58153;
+  opacity: 0.9;
 }
 
 .christmas-main-intro {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   line-height: 1.8;
-  color: var(--neutral-white);
+  color: #f1e3c9;
   text-align: center;
   margin: 0;
   opacity: 0.95;
@@ -4997,20 +5039,21 @@ main .contact-form-container {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.3rem;
-  line-height: 1.8;
-  color: var(--neutral-white);
+  line-height: 1.85;
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.92;
   text-align: left;
 }
 
 .christmas-main-text.christmas-closing {
   font-style: italic;
   text-align: center;
-  font-size: 1.5rem;
-  color: var(--neutral-white);
+  font-size: 1.6rem;
+  color: #cead7a;
   font-weight: 300;
+  text-shadow: 0 2px 12px rgba(0, 1, 2, 0.6);
 }
 
 /* Christmas Image Grid */
@@ -5025,39 +5068,44 @@ main .contact-form-container {
   position: relative;
   width: 100%;
   height: 400px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(206, 173, 122, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 1, 2, 0.65), 0 0 20px rgba(5, 43, 93, 0.2);
 }
 
 /* Christmas Highlight Section */
 .christmas-highlight-section {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
-  padding: 3rem;
+  background: linear-gradient(135deg, rgba(8, 25, 49, 0.88) 0%, rgba(5, 43, 93, 0.5) 100%);
+  border: 1.5px solid rgba(206, 173, 122, 0.4);
+  border-radius: 20px;
+  padding: 3.5rem;
   margin: 3rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  box-shadow: 0 18px 50px rgba(0, 1, 2, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .christmas-highlight-icon {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .christmas-highlight-icon i {
-  font-size: 2.5rem;
-  color: var(--neutral-white);
+  font-size: 2.75rem;
+  color: #cead7a;
+  text-shadow: 0 0 20px rgba(206, 173, 122, 0.5);
 }
 
 .christmas-highlight-heading {
   font-family: "Rye", cursive;
   font-weight: 300;
-  font-size: 2.2rem;
-  color: var(--neutral-white);
+  font-size: 2.4rem;
+  color: #cead7a;
   letter-spacing: 0.05em;
   margin: 0;
   text-transform: uppercase;
@@ -5068,11 +5116,11 @@ main .contact-form-container {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 200;
   font-size: 1.3rem;
-  line-height: 1.8;
-  color: var(--neutral-white);
+  line-height: 1.85;
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.94;
   text-align: center;
 }
 
@@ -5085,23 +5133,26 @@ main .contact-form-container {
 }
 
 .christmas-feast-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  padding: 3rem 2rem;
+  background: rgba(8, 25, 49, 0.72);
+  border: 1.5px solid rgba(206, 173, 122, 0.35);
+  border-radius: 20px;
+  padding: 3.25rem 2.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 35px rgba(0, 1, 2, 0.5);
 }
 
 .christmas-feast-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+  background: rgba(5, 43, 93, 0.75);
+  border-color: #cead7a;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 45px rgba(0, 1, 2, 0.75), 0 0 25px rgba(206, 173, 122, 0.25);
 }
 
 .christmas-feast-icon {
@@ -5110,15 +5161,16 @@ main .contact-form-container {
 }
 
 .christmas-feast-icon i {
-  font-size: 3rem;
-  color: var(--neutral-white);
+  font-size: 3.25rem;
+  color: #cead7a;
+  text-shadow: 0 0 15px rgba(206, 173, 122, 0.4);
 }
 
 .christmas-feast-heading {
   font-family: "Rye", cursive;
   font-weight: 300;
-  font-size: 1.8rem;
-  color: var(--neutral-white);
+  font-size: 1.9rem;
+  color: #cead7a;
   letter-spacing: 0.05em;
   margin: 0;
   text-transform: uppercase;
@@ -5129,10 +5181,30 @@ main .contact-form-container {
   font-weight: 200;
   font-size: 1.2rem;
   line-height: 1.8;
-  color: var(--neutral-white);
+  color: #f1e3c9;
   letter-spacing: 0.02em;
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.92;
+}
+
+.christmas-feast-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cead7a;
+  font-family: var(--font-playfair-display), "Playfair Display", serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.christmas-feast-link:hover {
+  color: #f1e3c9;
+  transform: translateY(-1px);
 }
 
 /* Christmas CTA Section */
@@ -5143,43 +5215,49 @@ main .contact-form-container {
 }
 
 .christmas-cta-button {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: var(--neutral-white);
-  padding: 1.5rem 3rem;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #cead7a 0%, #a58153 100%);
+  border: 1px solid rgba(241, 227, 201, 0.5);
+  color: #081931;
+  padding: 1.35rem 3.25rem;
+  border-radius: 9999px;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  font-weight: 400;
+  transition: all 0.35s ease;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 1rem;
+  box-shadow: 0 10px 32px rgba(206, 173, 122, 0.35);
 }
 
 .christmas-cta-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: var(--neutral-white);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #f1e3c9 0%, #cead7a 100%);
+  border-color: #cead7a;
+  color: #000102;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 42px rgba(206, 173, 122, 0.55);
 }
 
 .christmas-cta-button i {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  transition: transform 0.3s ease;
+}
+
+.christmas-cta-button:hover i {
+  transform: scale(1.15);
 }
 
 .christmas-final-image {
   position: relative;
   width: 100%;
   height: 600px;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(206, 173, 122, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 1, 2, 0.8), 0 0 30px rgba(5, 43, 93, 0.25);
   margin-top: 3rem;
 }
 
@@ -5249,8 +5327,9 @@ main .contact-form-container {
   }
 
   .christmas-feasting-text-box {
-    padding: 3rem 1rem;
-    border: 4px double var(--neutral-white);
+    padding: 3rem 1.5rem;
+    border: 2px solid #a58153;
+    box-shadow: 0 15px 40px rgba(0, 1, 2, 0.8), inset 0 0 0 1px rgba(206, 173, 122, 0.3);
     margin-left: 0;
     margin-top: 0;
     width: 100%;
@@ -5453,8 +5532,8 @@ main .contact-form-container {
   }
 
   .christmas-highlight-section {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .christmas-highlight-heading {
@@ -5474,8 +5553,8 @@ main .contact-form-container {
   }
 
   .christmas-feast-card {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .christmas-feast-heading {
@@ -5506,14 +5585,14 @@ main .contact-form-container {
 @media (max-width: 480px) {
   .christmas-hero-title {
     font-size: 2.2rem;
-    letter-spacing: 0.1em;
-    text-align: center;
+    letter-spacing: 0.08em;
   }
 
   .christmas-hero-subtitle {
     font-size: 0.9rem;
-    text-align: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   .christmas-hero-content {
@@ -5653,12 +5732,14 @@ main .contact-form-container {
   }
 
   .christmas-feasting-text-box {
-    padding: 2.5rem 0.75rem;
+    padding: 2.5rem 1rem;
     width: 100%;
     max-width: 100%;
     height: auto;
     min-height: 175px;
     margin-top: 0;
+    border: 2px solid #a58153;
+    box-shadow: 0 10px 30px rgba(0, 1, 2, 0.8), inset 0 0 0 1px rgba(206, 173, 122, 0.3);
   }
 
   .christmas-feasting-heading {
@@ -5717,7 +5798,7 @@ main .contact-form-container {
   }
 
   .christmas-highlight-section {
-    padding: 2rem 0.75rem;
+    padding: 2rem 1rem;
   }
 
   .christmas-highlight-heading {
@@ -5741,7 +5822,7 @@ main .contact-form-container {
   }
 
   .christmas-feast-card {
-    padding: 2rem 0.75rem;
+    padding: 2rem 1rem;
   }
 
   .christmas-feast-heading {
@@ -5780,6 +5861,7 @@ main .contact-form-container {
     justify-content: center;
   }
 }
+
 
 /* Private Dining Page Styles */
 .private-dining-hero-section {
@@ -7731,10 +7813,10 @@ main .contact-form-container {
 .christmas-popup-overlay {
   position: fixed;
   inset: 0;
-  z-index: 99999;
-  background: rgba(8, 9, 18, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999;
+  background: rgba(0, 1, 2, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7747,11 +7829,11 @@ main .contact-form-container {
   width: 100%;
   max-width: 580px;
   max-height: 92vh;
-  background: linear-gradient(160deg, #17182f 0%, #0d0e1c 100%);
-  border: 1.5px solid rgba(221, 171, 90, 0.45);
+  background: linear-gradient(160deg, #081931 0%, #052b5d 45%, #231f20 100%);
+  border: 1.5px solid #cead7a;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(221, 171, 90, 0.18);
+  box-shadow: 0 25px 60px rgba(0, 1, 2, 0.9), 0 0 40px rgba(206, 173, 122, 0.25);
   display: flex;
   flex-direction: column;
   animation: christmasZoomIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -7765,9 +7847,9 @@ main .contact-form-container {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(18, 19, 38, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: rgba(8, 25, 49, 0.75);
+  border: 1px solid rgba(206, 173, 122, 0.35);
+  color: #f1e3c9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7779,9 +7861,9 @@ main .contact-form-container {
 }
 
 .christmas-popup-close-btn:hover {
-  background: rgba(221, 171, 90, 0.25);
-  border-color: #DDAB5A;
-  color: #DDAB5A;
+  background: #cead7a;
+  border-color: #cead7a;
+  color: #081931;
   transform: rotate(90deg) scale(1.05);
 }
 
@@ -7796,7 +7878,7 @@ main .contact-form-container {
 .christmas-popup-image-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(14, 15, 28, 0.1) 0%, rgba(14, 15, 28, 0.4) 50%, #17182f 100%);
+  background: linear-gradient(180deg, rgba(8, 25, 49, 0.1) 0%, rgba(8, 25, 49, 0.45) 55%, #081931 100%);
   pointer-events: none;
 }
 
@@ -7805,26 +7887,27 @@ main .contact-form-container {
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #DDAB5A 0%, #c49540 100%);
-  color: #121326;
+  background: linear-gradient(135deg, #cead7a 0%, #a58153 100%);
+  color: #081931;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 700;
   font-size: 0.76rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.4rem 1.1rem;
+  padding: 0.45rem 1.25rem;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 18px rgba(221, 171, 90, 0.45);
+  box-shadow: 0 4px 18px rgba(206, 173, 122, 0.45);
   white-space: nowrap;
   z-index: 2;
+  border: 1px solid rgba(241, 227, 201, 0.4);
 }
 
 .christmas-popup-badge i {
   font-size: 0.85rem;
-  color: #8b0000;
+  color: #052b5d;
 }
 
 .christmas-popup-body {
@@ -7839,7 +7922,7 @@ main .contact-form-container {
 .christmas-popup-subtitle {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 0.95rem;
-  color: #DDAB5A;
+  color: #cead7a;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 0.5rem 0;
@@ -7849,17 +7932,19 @@ main .contact-form-container {
   font-family: "Rye", cursive;
   font-size: 1.85rem;
   line-height: 1.25;
-  color: #ffffff;
+  color: #f1e3c9;
   letter-spacing: 0.03em;
   margin: 0 0 0.85rem 0;
   text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 1, 2, 0.8);
 }
 
 .christmas-popup-description {
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.88);
+  color: #f1e3c9;
+  opacity: 0.92;
   margin: 0 0 1.25rem 0;
   max-width: 480px;
 }
@@ -7876,13 +7961,13 @@ main .contact-form-container {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.4rem 0.9rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(221, 171, 90, 0.35);
+  padding: 0.4rem 0.95rem;
+  background: rgba(5, 43, 93, 0.45);
+  border: 1px solid rgba(206, 173, 122, 0.4);
   border-radius: 9999px;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 0.85rem;
-  color: #DDAB5A;
+  color: #cead7a;
   backdrop-filter: blur(6px);
 }
 
@@ -7906,8 +7991,8 @@ main .contact-form-container {
   width: 100%;
   max-width: 420px;
   padding: 1.1rem 2rem;
-  background: linear-gradient(135deg, #DDAB5A 0%, #c49540 100%);
-  color: #121326;
+  background: linear-gradient(135deg, #cead7a 0%, #a58153 100%);
+  color: #081931;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-weight: 700;
   font-size: 1.05rem;
@@ -7916,14 +8001,15 @@ main .contact-form-container {
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(221, 171, 90, 0.35);
+  box-shadow: 0 8px 24px rgba(206, 173, 122, 0.35);
+  border: 1px solid rgba(241, 227, 201, 0.4);
 }
 
 .christmas-popup-primary-btn:hover {
-  background: linear-gradient(135deg, #e7b96a 0%, #d4a550 100%);
+  background: linear-gradient(135deg, #f1e3c9 0%, #cead7a 100%);
+  color: #000102;
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(221, 171, 90, 0.5);
-  color: #0b0c17;
+  box-shadow: 0 12px 32px rgba(206, 173, 122, 0.5);
 }
 
 .christmas-popup-primary-btn i {
@@ -7937,17 +8023,18 @@ main .contact-form-container {
 .christmas-popup-dismiss-btn {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.65);
+  color: #cead7a;
   font-family: var(--font-playfair-display), "Playfair Display", serif;
   font-size: 0.92rem;
   cursor: pointer;
   padding: 0.4rem 0.8rem;
   text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
 .christmas-popup-dismiss-btn:hover {
-  color: #DDAB5A;
+  color: #f1e3c9;
 }
 
 @keyframes christmasFadeIn {

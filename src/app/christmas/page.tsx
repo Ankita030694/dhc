@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -204,7 +204,7 @@ export default function ChristmasPage() {
             <p className="christmas-feasting-text">
               The Christmas Feast is a magnificent array of Delhi-inspired festive specials, all-new dishes, as well as Delhi favourites. Opt for the Classics Feast for a non-festive alternative. Each feast includes all the dishes on the menu. Drinks and optional service charge are not included in the price.
             </p>
-            <a href="/christmas_menu.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/Christmas_Set_Menu_2026_Delhi_House_Logo.pdf" target="_blank" rel="noopener noreferrer">
             <button className="christmas-feasting-button">
               See Feasting Menu
             </button>
@@ -425,7 +425,7 @@ export default function ChristmasPage() {
                 creations — designed to delight every palate.
               </p>
               <a
-                href="/christmas_menu.pdf"
+                href="/Christmas_Set_Menu_2026_Delhi_House_Logo.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="christmas-feast-link"
