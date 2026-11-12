@@ -1,8 +1,9 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import VanishingText from '../components/VanishingText';
@@ -272,7 +273,13 @@ export default function Home() {
               '--scroll-progress': sectionProgress
             } as React.CSSProperties & { '--scroll-progress': number }}
           >
-            <img src="/img1.jpg" alt="Delhi House Liverpool ambiance" />
+            <Image 
+              src="/img1.jpg" 
+              alt="Delhi House Liverpool ambiance" 
+              width={1200} 
+              height={800} 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            />
           </div>
         </div>
       </section>
@@ -318,7 +325,13 @@ export default function Home() {
                 transformOrigin: "center"
               }}
             >
-              <img src="/3.jpg" alt="Restaurant ambiance" />
+              <Image 
+                src="/3.jpg" 
+                alt="Restaurant ambiance" 
+                width={800} 
+                height={600} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
             </motion.div>
             <motion.div 
               className="experience-content"
@@ -377,7 +390,13 @@ export default function Home() {
                 transformOrigin: "center"
               }}
             >
-              <img src="/1.jpg" alt="Delicious Indian cuisine" />
+              <Image 
+                src="/1.jpg" 
+                alt="Delicious Indian cuisine" 
+                width={800} 
+                height={600} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
             </motion.div>
           </motion.div>
         </motion.div>
@@ -402,10 +421,22 @@ export default function Home() {
               />
             </div> */}
             <div className="pasta-lab-image">
-              <img src="/pb1.jpg" alt="Image 2" />
+              <Image 
+                src="/pb1.jpg" 
+                alt="The Patiala Bar" 
+                width={600} 
+                height={800} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
             </div>
             <div className="pasta-lab-image">
-              <img src="/pb2.jpg" alt="Image 2" />
+              <Image 
+                src="/pb2.jpg" 
+                alt="The Patiala Bar Cocktails" 
+                width={600} 
+                height={800} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
             </div>
           </div>
         </div>
@@ -420,7 +451,13 @@ export default function Home() {
             {/* Guardian Review Article */}
             <a href="https://www.theguardian.com/food/2020/sep/13/jay-rayner-restaurant-review-delhi-house-cafe-manchester-there-is-a-lot-to-enjoy" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/nm1.png" alt="Delhi House Liverpool review" />
+                <Image 
+                  src="/nm1.png" 
+                  alt="Delhi House Liverpool review" 
+                  width={600} 
+                  height={350} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               </div>
               <div className="news-content">
                 <h3 className="news-title">Delhi House Liverpool Review</h3>
@@ -433,7 +470,13 @@ export default function Home() {
             {/* Confidentials Liverpool Article */}
             <a href="https://confidentials.com/liverpool/a-look-inside-delhi-house-cafe" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/nm2.png" alt="Delhi House Liverpool opening" />
+                <Image 
+                  src="/nm2.png" 
+                  alt="Delhi House Liverpool opening" 
+                  width={600} 
+                  height={350} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               </div>
               <div className="news-content">
                 <h3 className="news-title">A Look Inside Delhi House Liverpool</h3>
@@ -446,7 +489,13 @@ export default function Home() {
             {/* Liverpool Echo Article */}
             <a href="https://www.liverpoolecho.co.uk/whats-on/food-drink-news/gallery/first-look-inside-royal-albert-29941494" target="_blank" rel="noopener noreferrer" className="news-item">
               <div className="news-image">
-                <img src="/nm3.png" alt="First look inside Royal Albert Dock restaurant" />
+                <Image 
+                  src="/nm3.png" 
+                  alt="First look inside Royal Albert Dock restaurant" 
+                  width={600} 
+                  height={350} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               </div>
               <div className="news-content">
                 <h3 className="news-title">First Look Inside Royal Albert</h3>

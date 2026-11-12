@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -253,7 +253,7 @@ export default function AboutUs() {
                 transformOrigin: "center"
               }}
             >
-              <img src="/ab1.jpg" alt="Restaurant ambiance" />
+              <Image src="/ab1.jpg" alt="Restaurant ambiance" width={800} height={600} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </motion.div>
             <motion.div 
               className="experience-content"
@@ -312,7 +312,7 @@ export default function AboutUs() {
                 transformOrigin: "center"
               }}
             >
-              <img src="/ab2.jpg" alt="Delicious Indian cuisine" />
+              <Image src="/ab2.jpg" alt="Delicious Indian cuisine" width={800} height={600} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </motion.div>
           </motion.div>
           
@@ -326,7 +326,7 @@ export default function AboutUs() {
               variants={slideInFromLeftVariants}
               transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <img src="/ab3.jpg" alt="Delhi House experience" />
+              <Image src="/ab3.jpg" alt="Delhi House experience" width={800} height={600} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </motion.div>
             <motion.div 
               className="experience-content"
@@ -380,7 +380,7 @@ export default function AboutUs() {
               className="experience-image"
               variants={slideInFromRightVariants}
             >
-              <img src="/ab4.jpg" alt="Delhi flavours and stories" />
+              <Image src="/ab4.jpg" alt="Delhi flavours and stories" width={800} height={600} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </motion.div>
           </motion.div>
         </motion.div>
